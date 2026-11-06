@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script>
 /* ?view=desktop preview: force desktop theme on narrow screens */
 try {
   if (new URLSearchParams(location.search).get("view") === "desktop") {
-    document.querySelector('meta[name="viewport"]').setAttribute("content", "width=1280");
+    document.querySelector('meta[name="viewport"]').setAttribute("content", "width=1280, viewport-fit=cover");
   }
 } catch (e) {}
 </script>
 <title>Prompt Playbook</title>
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#04070d;color:#e6fbff;margin:0;padding:20px;background-image:linear-gradient(rgba(0,240,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.07) 1px,transparent 1px),radial-gradient(ellipse at 20% 0%,rgba(0,240,255,.18),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(255,0,128,.14),transparent 50%);background-size:44px 44px,44px 44px,auto,auto;background-attachment:fixed}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#04070d;color:#e6fbff;margin:0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));background-image:linear-gradient(rgba(0,240,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.07) 1px,transparent 1px),radial-gradient(ellipse at 20% 0%,rgba(0,240,255,.18),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(255,0,128,.14),transparent 50%);background-size:44px 44px,44px 44px,auto,auto;background-attachment:fixed}
 main{max-width:680px;margin:0 auto}
 h1{font-size:30px;margin:0 0 4px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 18px rgba(0,240,255,.8)} p.sub{color:#9fd8e2;margin:0 0 20px;line-height:1.5}
 .card{background:rgba(8,20,32,.88);border:1px solid rgba(0,240,255,.45);border-radius:16px;padding:16px;margin:0 0 14px;box-shadow:0 0 24px rgba(0,240,255,.12),inset 0 0 0 1px rgba(255,255,255,.03)}
