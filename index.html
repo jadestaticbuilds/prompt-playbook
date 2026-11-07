@@ -227,7 +227,7 @@ function restoreCurrent(){
   showResult(c.idea||'',currentTier,c.cat||'',true,true);
 }
 function shortFor(text){return shortForBetter(text);}
-var recent=JSON.parse(localStorage.getItem('pp-recent')||'[]');
+var recent=[];try{recent=JSON.parse(localStorage.getItem('pp-recent')||'[]');if(!Array.isArray(recent))recent=[];}catch(e){recent=[];}
 function pushRecent(item){
   recent=recent.filter(function(r){return r.text!==item.text;});
   recent.unshift(item);recent=recent.slice(0,3);
@@ -311,7 +311,7 @@ function makeLonger(){
   document.getElementById('result').value=t;updateCheckFromResult();
   document.getElementById('lengthNote').textContent='Longer: added Clarify and Success lines to make the prompt better.';
 }
-var my=JSON.parse(localStorage.getItem('pp-my')||'[]');
+var my=[];try{my=JSON.parse(localStorage.getItem('pp-my')||'[]');if(!Array.isArray(my))my=[];}catch(e){my=[];}
 function renderMy(){document.getElementById('mylist').innerHTML=my.map(function(p,i){return '<li>'+p.replace(/</g,'&lt;')+' <button class="secondary" onclick="copySaved('+i+')">Copy</button> <button class="secondary" onclick="delMy('+i+')">Delete</button></li>';}).join('')||'<li class="note">No saved prompts yet. Make one above and tap Save this prompt.</li>';}
 function saveResult(){var t=document.getElementById('result').value;if(!t||my.indexOf(t)!==-1)return;my.unshift(t);localStorage.setItem('pp-my',JSON.stringify(my));renderMy();document.getElementById('saveNote').textContent='Saved! Scroll down to Your saved prompts to find it.';}
 function copySaved(i){copyText(my[i],'Copied!','savedCopyNote');}
