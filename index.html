@@ -162,6 +162,7 @@ button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-vi
 <p class="checkline" id="checkLine"></p>
 <p class="note" id="tierLine"></p>
 <p class="note" id="liftLine"></p>
+<p class="note" id="proLine"></p>
 <button id="copyBtn" data-i18n="copyBtn" onclick="copyResult()">Copy this prompt</button>
 <button class="secondary" data-i18n="tryUpBtn" onclick="tryTierUp()">Try it one tier up</button>
 <button class="secondary" data-i18n="shorterBtn" onclick="makeShorter()">Make it shorter</button>
@@ -178,6 +179,7 @@ button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-vi
 <li data-i18n="savedLi2">Your prompts and ideas are never sent anywhere. They live only in this browser.</li>
 <li data-i18n="savedLi3">Anonymous visit counts (GoatCounter) help us see which parts get used. Prompt content is never tracked. Use Export below as your backup.</li>
 </ul>
+<p class="note" data-i18n="savedProLine">Your briefs live here. Your contracts, rules, and systems live in Pro.</p>
 <label for="savedSearch" data-i18n="savedSearchL">Search your saved prompts</label>
 <input type="text" id="savedSearch" data-i18n-ph="savedSearchPh" placeholder="Type to filter your saved prompts" oninput="renderMy()">
 <ul id="mylist"></ul>
@@ -197,6 +199,7 @@ Never: move money, pay a bill, or change an account.
 Reporting: one short report after each run.
 Stop: if a number does not add up, stop and say so.</pre>
 <p class="note" data-i18n-html="govNote2"><b>Before:</b> "Handle my budget." (No limits, no gate. Anything could happen.)<br><b>After:</b> the contract above. Same job, now it can be trusted with it. The full governance chapter, with the gate matrix and the stop-rule library, is in the paid edition.</p>
+<p class="note" data-i18n="govProLine">Build yours, save it, and hand it to your agent — that’s Pro.</p>
 <h3 data-i18n="decH">Three decision prompts, free to use</h3>
 <p data-i18n-html="decP"><b>Three doors:</b> "Give me 3 genuinely different directions for this. One line each on what makes it different. Then I will choose."<br>
 <b>Do less:</b> "What is the smallest version of this that is still worth shipping?"<br>
@@ -210,7 +213,7 @@ Stop: if a number does not add up, stop and say so.</pre>
 </div>
 
 <p class="note" data-i18n-html="footNote">How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What's missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.</p>
-<p class="note" data-i18n="versionLine">Prompt Playbook, the free app, v2026.11.4, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
+<p class="note" data-i18n="versionLine">Prompt Playbook, the free app, v2026.11.5, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
 </main>
 <script>
 var LANGS=['en','es','fr','de'];
@@ -244,7 +247,7 @@ makeNote:'Make my prompt builds around your idea and the tier you picked. Random
 resultH:'3. Here is your ready prompt',resultL:'Your ready prompt (you can edit it)',
 nextStep:'Next step: paste this prompt into any AI chat and press send. This page does not run anything by itself. Then, if it worked, save it below. If you want to learn the system behind it, keep reading under the prompt.',
 copyBtn:'Copy this prompt',tryUpBtn:'Try it one tier up',shorterBtn:'Make it shorter',longerBtn:'Make it longer',anotherBtn:'Try another one',saveBtn:'Save this prompt',recentH:'Recent prompts',
-savedH:'Your saved prompts',savedPriv:'Private by design:',
+savedH:'Your saved prompts',govProLine:'Build yours, save it, and hand it to your agent — that\u2019s Pro.',savedProLine:'Your briefs live here. Your contracts, rules, and systems live in Pro.',savedPriv:'Private by design:',
 savedLi1:'No account, no signup.',
 savedLi2:'Your prompts and ideas are never sent anywhere. They live only in this browser.',
 savedLi3:'Anonymous visit counts (GoatCounter) help us see which parts get used. Prompt content is never tracked. Use Export below as your backup.',
@@ -261,7 +264,7 @@ deeperH:'Go deeper',
 deeperP:'This free app stays free. A full paid edition is being built from the same system: the complete governance chapter, a library of worked before-and-after prompts, every decision prompt taught, fillable worksheets, and a 7-day plan to set up your own first delegated system.',
 deeperNote:'When it launches, the free first chapter and the paid editions will be linked right here. Nothing about this page changes when it does. The paid edition is in English for now.',
 footNote:'How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What\u2019s missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.',
-versionLine:'Prompt Playbook, the free app, v2026.11.4, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.'},
+versionLine:'Prompt Playbook, the free app, v2026.11.5, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.'},
 es:{title:'Prompt Playbook — la app gratuita | Jade Static Builds',
 sub:'<b>La app gratuita.</b> Creada a partir de un sistema real que gestiona decenas de apps publicadas, un programa diario de contenido y una revisión semanal, con puertas de aprobación para todo lo público. No necesitas saber nada de prompts. IA agéntica significa que el agente hace un trabajo por ti, no solo responde una pregunta. Le das un objetivo, límites, una verificación y una regla de parada, y trabaja con esas reglas. Esta página te enseña los niveles y luego crea un prompt que puedes probar enseguida. Esta página solo crea el texto del prompt. Pégalo en un chat de IA para usarlo; por sí sola no ejecuta ningún agente ni programa ningún horario.',
 tiersH:'1. Los niveles, en palabras simples',
@@ -291,7 +294,7 @@ makeNote:'Crear mi prompt construye a partir de tu idea y el nivel que elegiste.
 resultH:'3. Aquí está tu prompt listo',resultL:'Tu prompt listo (puedes editarlo)',
 nextStep:'Siguiente paso: pega este prompt en cualquier chat de IA y pulsa enviar. Esta página no ejecuta nada por sí sola. Luego, si funcionó, guárdalo abajo. Si quieres aprender el sistema que hay detrás, sigue leyendo bajo el prompt.',
 copyBtn:'Copiar este prompt',tryUpBtn:'Probarlo un nivel más arriba',shorterBtn:'Hacerlo más corto',longerBtn:'Hacerlo más largo',anotherBtn:'Probar otro',saveBtn:'Guardar este prompt',recentH:'Prompts recientes',
-savedH:'Tus prompts guardados',savedPriv:'Privado por diseño:',
+savedH:'Tus prompts guardados',govProLine:'Crea el tuyo, guárdalo y entrégaselo a tu agente: eso es Pro.',savedProLine:'Tus instrucciones viven aquí. Tus contratos, reglas y sistemas viven en Pro.',savedPriv:'Privado por diseño:',
 savedLi1:'Sin cuenta, sin registro.',
 savedLi2:'Tus prompts e ideas nunca se envían a ningún sitio. Viven solo en este navegador.',
 savedLi3:'Los conteos anónimos de visitas (GoatCounter) nos ayudan a ver qué partes se usan. El contenido de los prompts nunca se rastrea. Usa Exportar abajo como tu copia de seguridad.',
@@ -308,7 +311,7 @@ deeperH:'Ir más profundo',
 deeperP:'Esta app gratuita sigue siendo gratuita. Se está construyendo una edición de pago completa a partir del mismo sistema: el capítulo completo de gobernanza, una biblioteca de prompts trabajados con antes y después, cada prompt de decisión enseñado, hojas de trabajo para rellenar y un plan de 7 días para montar tu primer sistema delegado.',
 deeperNote:'Cuando se lance, el primer capítulo gratuito y las ediciones de pago estarán enlazados justo aquí. Nada de esta página cambia cuando eso ocurra. La edición de pago está en inglés por ahora.',
 footNote:'Cómo funciona, en una línea: un buen prompt dice qué quieres, cuáles son los límites, cómo verificarlo y qué nunca debe pasar. Nosotros añadimos esas partes por ti, para que no tengas que aprenderlas primero. ¿Qué falta? Cuéntanoslo en GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Aquí los prompts se usan de uno en uno, no encadenados.',
-versionLine:'Prompt Playbook, la app gratuita, v2026.11.4, actualizada el 8 de noviembre de 2026. Un proyecto de Jade Static Builds, construido con Muse.'},
+versionLine:'Prompt Playbook, la app gratuita, v2026.11.5, actualizada el 8 de noviembre de 2026. Un proyecto de Jade Static Builds, construido con Muse.'},
 fr:{title:'Prompt Playbook — l\u2019app gratuite | Jade Static Builds',
 sub:'<b>L\u2019app gratuite.</b> Construite à partir d\u2019un système réel qui fait tourner des dizaines d\u2019apps publiées, un programme de contenu quotidien et une revue hebdomadaire, avec des portes d\u2019approbation pour tout ce qui est public. Vous n\u2019avez pas besoin de savoir quoi que ce soit sur les prompts. L\u2019IA agentique signifie que l\u2019agent fait un travail pour vous, au lieu de simplement répondre à une question. Vous lui donnez un objectif, des limites, une vérification et une règle d\u2019arrêt, et il travaille selon ces règles. Cette page vous enseigne les niveaux, puis construit un prompt que vous pouvez essayer tout de suite. Cette page ne construit que le texte du prompt. Collez-le dans un chat IA pour l\u2019utiliser ; elle ne lance aucun agent et ne programme aucun horaire par elle-même.',
 tiersH:'1. Les niveaux, en mots simples',
@@ -338,7 +341,7 @@ makeNote:'Créer mon prompt construit à partir de votre idée et du niveau choi
 resultH:'3. Voici votre prompt prêt',resultL:'Votre prompt prêt (vous pouvez le modifier)',
 nextStep:'Étape suivante: collez ce prompt dans n\u2019importe quel chat IA et appuyez sur envoyer. Cette page n\u2019exécute rien par elle-même. Ensuite, si cela a marché, enregistrez-le ci-dessous. Si vous voulez apprendre le système derrière, continuez à lire sous le prompt.',
 copyBtn:'Copier ce prompt',tryUpBtn:'L\u2019essayer un niveau plus haut',shorterBtn:'Le raccourcir',longerBtn:'L\u2019allonger',anotherBtn:'En essayer un autre',saveBtn:'Enregistrer ce prompt',recentH:'Prompts récents',
-savedH:'Vos prompts enregistrés',savedPriv:'Privé par conception:',
+savedH:'Vos prompts enregistrés',govProLine:'Créez le vôtre, enregistrez-le et remettez-le à votre agent — c\u2019est ça, Pro.',savedProLine:'Vos briefs vivent ici. Vos contrats, règles et systèmes vivent dans Pro.',savedPriv:'Privé par conception:',
 savedLi1:'Aucun compte, aucune inscription.',
 savedLi2:'Vos prompts et vos idées ne sont jamais envoyés nulle part. Ils vivent uniquement dans ce navigateur.',
 savedLi3:'Des comptages de visites anonymes (GoatCounter) nous aident à voir quelles parties sont utilisées. Le contenu des prompts n\u2019est jamais suivi. Utilisez Exporter ci-dessous comme sauvegarde.',
@@ -355,7 +358,7 @@ deeperH:'Aller plus loin',
 deeperP:'Cette app gratuite reste gratuite. Une édition payante complète est en construction à partir du même système: le chapitre complet de gouvernance, une bibliothèque de prompts travaillés avec avant et après, chaque prompt de décision enseigné, des feuilles de travail à remplir et un plan de 7 jours pour monter votre premier système délégué.',
 deeperNote:'Quand elle sera lancée, le premier chapitre gratuit et les éditions payantes seront liés juste ici. Rien sur cette page ne change quand cela arrive. L\u2019édition payante est en anglais pour le moment.',
 footNote:'Comment ça marche, en une ligne: un bon prompt dit ce que vous voulez, quelles sont les limites, comment le vérifier et ce qui ne doit jamais arriver. Nous ajoutons ces parties pour vous, pour que vous n\u2019ayez pas à les apprendre d\u2019abord. Que manque-t-il? Dites-le-nous sur GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Les prompts s\u2019utilisent un par un ici, jamais enchaînés.',
-versionLine:'Prompt Playbook, l\u2019app gratuite, v2026.11.4, mise à jour le 8 novembre 2026. Un projet Jade Static Builds, construit avec Muse.'},
+versionLine:'Prompt Playbook, l\u2019app gratuite, v2026.11.5, mise à jour le 8 novembre 2026. Un projet Jade Static Builds, construit avec Muse.'},
 de:{title:'Prompt Playbook — die kostenlose App | Jade Static Builds',
 sub:'<b>Die kostenlose App.</b> Gebaut aus einem echten System, das Dutzende veröffentlichter Apps, ein tägliches Content-Programm und eine wöchentliche Überprüfung betreibt, mit Freigabe-Toren für alles Öffentliche. Du musst nichts über Prompts wissen. Agentische KI bedeutet, dass der Agent einen Job für dich erledigt, statt nur eine Frage zu beantworten. Du gibst ihm ein Ziel, Grenzen, eine Prüfung und eine Stopp-Regel, und er arbeitet nach diesen Regeln. Diese Seite erklärt dir die Stufen und baut dann einen Prompt, den du sofort ausprobieren kannst. Diese Seite baut nur den Prompt-Text. Füge ihn in einen KI-Chat ein, um ihn zu nutzen; sie führt selbst keinen Agenten aus und setzt keinen Zeitplan.',
 tiersH:'1. Die Stufen, in einfachen Worten',
@@ -385,7 +388,7 @@ makeNote:'Meinen Prompt bauen baut um deine Idee und die gewählte Stufe. Zufall
 resultH:'3. Hier ist dein fertiger Prompt',resultL:'Dein fertiger Prompt (du kannst ihn bearbeiten)',
 nextStep:'Nächster Schritt: Füge diesen Prompt in einen beliebigen KI-Chat ein und drücke Senden. Diese Seite führt selbst nichts aus. Wenn es funktioniert hat, speichere ihn unten. Wenn du das System dahinter lernen willst, lies unter dem Prompt weiter.',
 copyBtn:'Diesen Prompt kopieren',tryUpBtn:'Eine Stufe höher versuchen',shorterBtn:'Kürzer machen',longerBtn:'Länger machen',anotherBtn:'Einen anderen versuchen',saveBtn:'Diesen Prompt speichern',recentH:'Letzte Prompts',
-savedH:'Deine gespeicherten Prompts',savedPriv:'Privat von Grund auf:',
+savedH:'Deine gespeicherten Prompts',govProLine:'Erstelle deinen, speichere ihn und übergib ihn deinem Agenten — das ist Pro.',savedProLine:'Deine Briefings leben hier. Deine Verträge, Regeln und Systeme leben in Pro.',savedPriv:'Privat von Grund auf:',
 savedLi1:'Kein Konto, keine Anmeldung.',
 savedLi2:'Deine Prompts und Ideen werden nirgendwohin gesendet. Sie leben nur in diesem Browser.',
 savedLi3:'Anonyme Besuchszählung (GoatCounter) hilft uns zu sehen, welche Teile genutzt werden. Prompt-Inhalte werden nie verfolgt. Nutze Export unten als dein Backup.',
@@ -402,14 +405,14 @@ deeperH:'Tiefer gehen',
 deeperP:'Diese kostenlose App bleibt kostenlos. Eine vollständige bezahlte Ausgabe wird aus demselben System gebaut: das komplette Governance-Kapitel, eine Bibliothek ausgearbeiteter Vorher-Nachher-Prompts, jeder Entscheidungs-Prompt erklärt, ausfüllbare Arbeitsblätter und ein 7-Tage-Plan, um dein erstes delegiertes System aufzusetzen.',
 deeperNote:'Wenn sie startet, werden das kostenlose erste Kapitel und die bezahlten Ausgaben genau hier verlinkt. Nichts an dieser Seite ändert sich dann. Die bezahlte Ausgabe ist vorerst auf Englisch.',
 footNote:'Wie es funktioniert, in einer Zeile: Ein guter Prompt sagt, was du willst, wo die Grenzen sind, wie man es prüft und was niemals passieren darf. Wir fügen diese Teile für dich hinzu, damit du sie nicht erst lernen musst. Was fehlt? Sag es uns auf GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts werden hier einzeln genutzt, nicht aneinandergehängt.',
-versionLine:'Prompt Playbook, die kostenlose App, v2026.11.4, aktualisiert am 8. November 2026. Ein Projekt von Jade Static Builds, gebaut mit Muse.'}
+versionLine:'Prompt Playbook, die kostenlose App, v2026.11.5, aktualisiert am 8. November 2026. Ein Projekt von Jade Static Builds, gebaut mit Muse.'}
 };
 function T(){return UI[curLang];}
 var GEN={
 en:{labels:{goal:'Goal',limits:'Limits',check:'Check',stop:'Stop',output:'Output'},
 goalOnly:'Goal: help me {idea}.',hardMark:' My hard limits: ',donePrefix:'Done looks like: ',
 neverWord:'never ',alsoWord:'. Also: ',rulesLabel:'Rules that travel',
-rulesText:'Rules that travel: this is a standing area, not a one-off task. Keep a short log of what changed and why. Report back what was useful and what was noise. Never publish, post, send, buy, or change an app or account without my yes for that exact item.',
+rulesText:'Rules that travel: show me the exact finished thing before anything is published, sent, spent, or changed. This is a standing area, not a one-off task.',
 reportLabel:'Report back like this',schedLabel:'Schedule',
 schedT:'Schedule: run this {when}, report only, and stay quiet on quiet days. The schedule does not remove my approval for anything public or irreversible.',
 schedFallback:'on a regular clock',neverMark:'Never ',schedNoteMark:'The schedule does not remove',clarifyLabel:'Clarify',
@@ -456,10 +459,10 @@ money:{limits:'only use the numbers I gave you. Never move money or change an ac
 general:{limits:'keep it clear and practical, and only use information that fits what I asked for.',output:'a clear answer I can act on, in simple steps.'}},
 examples:{1:'Goal: what is the weather in Miami tomorrow?',
 2:'Goal: compare two phones under $500.\nLimits: only use verified prices, and keep it short.\nCheck: show the best first, with reasons, and say what is still uncertain.\nStop: do not buy anything without my yes.\nOutput: a short comparison I can choose from.',
-3:'Goal: keep my weekly budget tidy.\nLimits: only review spending, never move money.\nCheck: report what changed and what is over budget.\nStop: do not move money or change an account without my yes.\nOutput: a short report, plus an honest verdict on whether the budget is on track.\nRules that travel: keep a log of what changed and why, and flag spending over budget.',
-4:'Goal: check social trends every morning at 9.\nLimits: only report trends with real engagement, and only adapt ideas that actually fit.\nCheck: report what fits, what does not fit, and give 2 or 3 adapted ideas.\nStop: never publish, like, comment, or follow from this job.\nOutput: a short morning report.\nRules that travel: keep a log of what changed and why, and flag templates nobody uses.\nSchedule: run this on a clock, report only, and stay quiet on quiet days.'},
+3:'Goal: keep my weekly budget tidy.\nLimits: only review spending, never move money.\nCheck: report what changed and what is over budget.\nStop: do not move money or change an account without my yes.\nOutput: a short report, plus an honest verdict on whether the budget is on track.\nRules that travel: show me the exact finished thing before anything is published, sent, spent, or changed.',
+4:'Goal: check social trends every morning at 9.\nLimits: only report trends with real engagement, and only adapt ideas that actually fit.\nCheck: report what fits, what does not fit, and give 2 or 3 adapted ideas.\nStop: never publish, like, comment, or follow from this job.\nOutput: a short morning report.\nRules that travel: show me the exact finished thing before anything is published, sent, spent, or changed.\nSchedule: run this on a clock, report only, and stay quiet on quiet days.'},
 ideas:['Write a work email','Plan a trip','Make a weekly budget','Study for a test','Write a social media post','Plan a workout week','Cook with what is in the fridge','Write a resume bullet','Plan a birthday party','Learn a new topic','Compare two phones','Start a small business idea'],
-msgs:{detectedT:'Detected: {cat}, {tier}.',exampleT:'Example prompt, {tier}.',aboutT:'This prompt is about: {idea}.',
+msgs:{proTierNote:'This is the brief. Pro turns it into a living contract — approval gates, reporting cadence, stop conditions — kept in your workspace.',govProLine:'Build yours, save it, and hand it to your agent — that\u2019s Pro.',savedProLine:'Your briefs live here. Your contracts, rules, and systems live in Pro.',detectedT:'Detected: {cat}, {tier}.',exampleT:'Example prompt, {tier}.',aboutT:'This prompt is about: {idea}.',
 chkPrefix:'Prompt check: ',chkCovered:' covered',chkMissing:'. Not yet added: ',partsCovered:' Parts covered: ',
 nudge:'Add one detail to make this stronger, like where, when, or budget.',
 tier1Note:'Note: your Add details entries are not in a Tier 1 prompt. Tier 1 is just the goal. Try it one tier up to include them.',
@@ -477,7 +480,7 @@ importOk:'Imported {n} new prompt(s).',importFail:'That file could not be import
 es:{labels:{goal:'Objetivo',limits:'Límites',check:'Verificación',stop:'Detente',output:'Resultado'},
 goalOnly:'Objetivo: ayúdame a {idea}.',hardMark:' Mis límites estrictos: ',donePrefix:'Así se ve terminado: ',
 neverWord:'nunca ',alsoWord:'. Además: ',rulesLabel:'Reglas permanentes',
-rulesText:'Reglas permanentes: esto es un área permanente, no una tarea única. Lleva un registro breve de qué cambió y por qué. Informa qué fue útil y qué fue ruido. Nunca publiques, envíes, compres ni cambies una app o una cuenta sin mi sí para ese elemento exacto.',
+rulesText:'Reglas permanentes: muéstrame la cosa terminada exacta antes de que se publique, envíe, gaste o cambie nada. Esto es un área permanente, no una tarea única.',
 reportLabel:'Informa así',schedLabel:'Horario',
 schedT:'Horario: ejecuta esto {when}, solo informa, y guarda silencio los días tranquilos. El horario no elimina mi aprobación para nada público o irreversible.',
 schedFallback:'con un horario regular',neverMark:'Nunca ',schedNoteMark:'El horario no elimina',clarifyLabel:'Aclara',
@@ -524,10 +527,10 @@ money:{limits:'usa solo los números que te di. Nunca muevas dinero ni cambies u
 general:{limits:'que sea claro y práctico, y usa solo información que encaje con lo que pedí.',output:'una respuesta clara sobre la que pueda actuar, en pasos simples.'}},
 examples:{1:'Objetivo: ¿qué tiempo hará mañana en Miami?',
 2:'Objetivo: compara dos teléfonos por menos de 500 $.\nLímites: usa solo precios verificados y que sea corto.\nVerificación: muestra primero el mejor, con razones, y di qué aún no está seguro.\nDetente: no compres nada sin mi sí.\nResultado: una comparación breve de la que pueda elegir.',
-3:'Objetivo: mantén ordenado mi presupuesto semanal.\nLímites: solo revisa el gasto, nunca muevas dinero.\nVerificación: informa qué cambió y qué supera el presupuesto.\nDetente: no muevas dinero ni cambies una cuenta sin mi sí.\nResultado: un informe breve, más un veredicto honesto sobre si el presupuesto va bien.\nReglas permanentes: lleva un registro de qué cambió y por qué, y marca el gasto que supere el presupuesto.',
-4:'Objetivo: revisa las tendencias sociales cada mañana a las 9.\nLímites: informa solo de tendencias con interacción real y adapta solo ideas que realmente encajen.\nVerificación: informa qué encaja, qué no encaja, y da 2 o 3 ideas adaptadas.\nDetente: nunca publiques, des me gusta, comentes ni sigas desde este trabajo.\nResultado: un informe breve de la mañana.\nReglas permanentes: lleva un registro de qué cambió y por qué, y marca las plantillas que nadie usa.\nHorario: ejecuta esto con horario, solo informa, y guarda silencio los días tranquilos.'},
+3:'Objetivo: mantén ordenado mi presupuesto semanal.\nLímites: solo revisa el gasto, nunca muevas dinero.\nVerificación: informa qué cambió y qué supera el presupuesto.\nDetente: no muevas dinero ni cambies una cuenta sin mi sí.\nResultado: un informe breve, más un veredicto honesto sobre si el presupuesto va bien.\nReglas permanentes: muéstrame la cosa terminada exacta antes de que se publique, envíe, gaste o cambie nada.',
+4:'Objetivo: revisa las tendencias sociales cada mañana a las 9.\nLímites: informa solo de tendencias con interacción real y adapta solo ideas que realmente encajen.\nVerificación: informa qué encaja, qué no encaja, y da 2 o 3 ideas adaptadas.\nDetente: nunca publiques, des me gusta, comentes ni sigas desde este trabajo.\nResultado: un informe breve de la mañana.\nReglas permanentes: muéstrame la cosa terminada exacta antes de que se publique, envíe, gaste o cambie nada.\nHorario: ejecuta esto con horario, solo informa, y guarda silencio los días tranquilos.'},
 ideas:['Escribe un correo de trabajo','Planifica un viaje','Haz un presupuesto semanal','Estudia para un examen','Escribe una publicación para redes sociales','Planifica una semana de ejercicio','Cocina con lo que hay en la nevera','Escribe un punto para mi currículum','Planifica una fiesta de cumpleaños','Aprende un tema nuevo','Compara dos teléfonos','Empieza una idea de negocio pequeño'],
-msgs:{detectedT:'Detectado: {cat}, {tier}.',exampleT:'Prompt de ejemplo, {tier}.',aboutT:'Este prompt trata de: {idea}.',
+msgs:{proTierNote:'Esto es la instrucción. Pro la convierte en un contrato vivo — puertas de aprobación, ritmo de informes, condiciones de parada — guardado en tu espacio de trabajo.',govProLine:'Crea el tuyo, guárdalo y entrégaselo a tu agente: eso es Pro.',savedProLine:'Tus instrucciones viven aquí. Tus contratos, reglas y sistemas viven en Pro.',detectedT:'Detectado: {cat}, {tier}.',exampleT:'Prompt de ejemplo, {tier}.',aboutT:'Este prompt trata de: {idea}.',
 chkPrefix:'Revisión del prompt: ',chkCovered:' cubiertos',chkMissing:'. Aún falta: ',partsCovered:' Partes cubiertas: ',
 nudge:'Añade un detalle para hacerlo más fuerte, como dónde, cuándo o el presupuesto.',
 tier1Note:'Nota: lo que pusiste en Añadir detalles no entra en un prompt de Nivel 1. El Nivel 1 es solo el objetivo. Pruébalo un nivel más arriba para incluirlo.',
@@ -545,7 +548,7 @@ importOk:'Se importaron {n} prompt(s) nuevo(s).',importFail:'Ese archivo no se p
 fr:{labels:{goal:'Objectif',limits:'Limites',check:'Vérification',stop:'Arrêt',output:'Résultat'},
 goalOnly:'Objectif: aidez-moi à {idea}.',hardMark:' Mes limites strictes: ',donePrefix:'Le résultat attendu: ',
 neverWord:'jamais ',alsoWord:'. Aussi: ',rulesLabel:'Règles permanentes',
-rulesText:'Règles permanentes: ceci est un domaine permanent, pas une tâche unique. Tiens un journal bref de ce qui a changé et pourquoi. Rapporte ce qui a été utile et ce qui était du bruit. Jamais de publication, d\u2019envoi, d\u2019achat ou de modification d\u2019une app ou d\u2019un compte sans mon oui pour cet élément précis.',
+rulesText:'Règles permanentes: montre-moi la chose finie exacte avant que quoi que ce soit soit publié, envoyé, dépensé ou modifié. Ceci est un domaine permanent, pas une tâche unique.',
 reportLabel:'Rapporte ainsi',schedLabel:'Horaire',
 schedT:'Horaire: exécute ceci {when}, en rapport seulement, et reste silencieux les jours calmes. L\u2019horaire ne supprime pas mon approbation pour tout ce qui est public ou irréversible.',
 schedFallback:'selon un horaire régulier',neverMark:'Jamais ',schedNoteMark:'L\u2019horaire ne supprime pas',clarifyLabel:'Précise',
@@ -592,10 +595,10 @@ money:{limits:'utilise uniquement les chiffres que je t\u2019ai donnés. Ne dép
 general:{limits:'reste clair et pratique, et utilise uniquement des informations qui correspondent à ce que j\u2019ai demandé.',output:'une réponse claire sur laquelle je peux agir, en étapes simples.'}},
 examples:{1:'Objectif: quel temps fera-t-il demain à Miami?',
 2:'Objectif: compare deux téléphones à moins de 500 $.\nLimites: utilise uniquement des prix vérifiés et reste court.\nVérification: montre d\u2019abord le meilleur, avec les raisons, et dis ce qui reste incertain.\nArrêt: n\u2019achète rien sans mon oui.\nRésultat: une courte comparaison parmi laquelle choisir.',
-3:'Objectif: garde mon budget hebdomadaire en ordre.\nLimites: examine uniquement les dépenses, ne déplace jamais d\u2019argent.\nVérification: rapporte ce qui a changé et ce qui dépasse le budget.\nArrêt: ne déplace pas d\u2019argent et ne modifie pas de compte sans mon oui.\nRésultat: un court rapport, plus un verdict honnête sur si le budget est sur la bonne voie.\nRègles permanentes: tiens un journal de ce qui a changé et pourquoi, et signale les dépenses qui dépassent le budget.',
-4:'Objectif: vérifie les tendances sociales chaque matin à 9 h.\nLimites: rapporte uniquement les tendances avec un vrai engagement et adapte uniquement les idées qui correspondent vraiment.\nVérification: rapporte ce qui correspond, ce qui ne correspond pas, et donne 2 ou 3 idées adaptées.\nArrêt: ne publie, n\u2019aime, ne commente et ne suis jamais depuis ce travail.\nRésultat: un court rapport du matin.\nRègles permanentes: tiens un journal de ce qui a changé et pourquoi, et signale les modèles que personne n\u2019utilise.\nHoraire: exécute ceci sur une horloge, en rapport seulement, silencieux les jours calmes.'},
+3:'Objectif: garde mon budget hebdomadaire en ordre.\nLimites: examine uniquement les dépenses, ne déplace jamais d\u2019argent.\nVérification: rapporte ce qui a changé et ce qui dépasse le budget.\nArrêt: ne déplace pas d\u2019argent et ne modifie pas de compte sans mon oui.\nRésultat: un court rapport, plus un verdict honnête sur si le budget est sur la bonne voie.\nRègles permanentes: montre-moi la chose finie exacte avant que quoi que ce soit soit publié, envoyé, dépensé ou modifié.',
+4:'Objectif: vérifie les tendances sociales chaque matin à 9 h.\nLimites: rapporte uniquement les tendances avec un vrai engagement et adapte uniquement les idées qui correspondent vraiment.\nVérification: rapporte ce qui correspond, ce qui ne correspond pas, et donne 2 ou 3 idées adaptées.\nArrêt: ne publie, n\u2019aime, ne commente et ne suis jamais depuis ce travail.\nRésultat: un court rapport du matin.\nRègles permanentes: montre-moi la chose finie exacte avant que quoi que ce soit soit publié, envoyé, dépensé ou modifié.\nHoraire: exécute ceci sur une horloge, en rapport seulement, silencieux les jours calmes.'},
 ideas:['Écrire un e-mail de travail','Planifier un voyage','Faire un budget hebdomadaire','Étudier pour un examen','Écrire une publication pour les réseaux sociaux','Planifier une semaine d\u2019entraînement','Cuisiner avec ce qu\u2019il y a dans le frigo','Écrire un point pour mon CV','Planifier une fête d\u2019anniversaire','Apprendre un nouveau sujet','Comparer deux téléphones','Lancer une idée de petite entreprise'],
-msgs:{detectedT:'Détecté: {cat}, {tier}.',exampleT:'Prompt d\u2019exemple, {tier}.',aboutT:'Ce prompt concerne: {idea}.',
+msgs:{proTierNote:'Voici le brief. Pro le transforme en contrat vivant — portes d\u2019approbation, rythme de rapport, conditions d\u2019arrêt — conservé dans votre espace de travail.',govProLine:'Créez le vôtre, enregistrez-le et remettez-le à votre agent — c\u2019est ça, Pro.',savedProLine:'Vos briefs vivent ici. Vos contrats, règles et systèmes vivent dans Pro.',detectedT:'Détecté: {cat}, {tier}.',exampleT:'Prompt d\u2019exemple, {tier}.',aboutT:'Ce prompt concerne: {idea}.',
 chkPrefix:'Vérification du prompt: ',chkCovered:' couverts',chkMissing:'. Pas encore ajouté: ',partsCovered:' Parties couvertes: ',
 nudge:'Ajoutez un détail pour le rendre plus fort, comme où, quand ou le budget.',
 tier1Note:'Note: ce que vous avez mis dans Ajouter des détails n\u2019entre pas dans un prompt de Niveau 1. Le Niveau 1 est seulement l\u2019objectif. Essayez-le un niveau plus haut pour les inclure.',
@@ -613,7 +616,7 @@ importOk:'{n} nouveau(x) prompt(s) importé(s).',importFail:'Ce fichier n\u2019a
 de:{labels:{goal:'Ziel',limits:'Grenzen',check:'Prüfung',stop:'Stopp',output:'Ergebnis'},
 goalOnly:'Ziel: Hilf mir bei dieser Aufgabe: {idea}.',hardMark:' Meine festen Grenzen: ',donePrefix:'Fertig sieht so aus: ',
 neverWord:'niemals ',alsoWord:'. Außerdem: ',rulesLabel:'Dauerregeln',
-rulesText:'Dauerregeln: Dies ist ein ständiger Bereich, keine einmalige Aufgabe. Führe ein kurzes Protokoll darüber, was sich geändert hat und warum. Berichte, was nützlich war und was nur Rauschen war. Niemals etwas veröffentlichen, posten, senden, kaufen oder eine App oder ein Konto ohne mein Ja für genau dieses Element ändern.',
+rulesText:'Dauerregeln: Zeige mir das exakte fertige Ergebnis, bevor irgendetwas veröffentlicht, gesendet, ausgegeben oder geändert wird. Dies ist ein ständiger Bereich, keine einmalige Aufgabe.',
 reportLabel:'Berichte so',schedLabel:'Zeitplan',
 schedT:'Zeitplan: Führe dies {when} aus, berichte nur, und bleibe an ruhigen Tagen still. Der Zeitplan hebt meine Freigabe für Öffentliches oder Unumkehrbares nicht auf.',
 schedFallback:'nach einem regelmäßigen Zeitplan',neverMark:'Niemals ',schedNoteMark:'Der Zeitplan hebt',clarifyLabel:'Kläre',
@@ -660,10 +663,10 @@ money:{limits:'nutze nur die Zahlen, die ich dir gegeben habe. Bewege niemals Ge
 general:{limits:'halte es klar und praktisch und nutze nur Informationen, die zu meiner Bitte passen.',output:'eine klare Antwort, nach der ich handeln kann, in einfachen Schritten.'}},
 examples:{1:'Ziel: Wie ist das Wetter morgen in Miami?',
 2:'Ziel: Vergleiche zwei Handys unter 500 $.\nGrenzen: Nutze nur geprüfte Preise und halte es kurz.\nPrüfung: Zeige das beste zuerst, mit Gründen, und sage, was noch unsicher ist.\nStopp: Kaufe nichts ohne mein Ja.\nErgebnis: ein kurzer Vergleich, aus dem ich wählen kann.',
-3:'Ziel: Halte mein Wochenbudget ordentlich.\nGrenzen: Nur Ausgaben prüfen, niemals Geld bewegen.\nPrüfung: Berichte, was sich geändert hat und was über Budget liegt.\nStopp: Bewege kein Geld und ändere kein Konto ohne mein Ja.\nErgebnis: ein kurzer Bericht, plus ein ehrliches Urteil, ob das Budget auf Kurs ist.\nDauerregeln: Führe ein Protokoll darüber, was sich geändert hat und warum, und markiere Ausgaben über Budget.',
-4:'Ziel: Prüfe jeden Morgen um 9 die Social-Trends.\nGrenzen: Berichte nur Trends mit echter Interaktion und passe nur Ideen an, die wirklich passen.\nPrüfung: Berichte, was passt, was nicht passt, und gib 2 oder 3 angepasste Ideen.\nStopp: Niemals aus diesem Job veröffentlichen, liken, kommentieren oder folgen.\nErgebnis: ein kurzer Morgenbericht.\nDauerregeln: Führe ein Protokoll darüber, was sich geändert hat und warum, und markiere Vorlagen, die niemand nutzt.\nZeitplan: Führe dies nach Zeitplan aus, berichte nur, und bleibe an ruhigen Tagen still.'},
+3:'Ziel: Halte mein Wochenbudget ordentlich.\nGrenzen: Nur Ausgaben prüfen, niemals Geld bewegen.\nPrüfung: Berichte, was sich geändert hat und was über Budget liegt.\nStopp: Bewege kein Geld und ändere kein Konto ohne mein Ja.\nErgebnis: ein kurzer Bericht, plus ein ehrliches Urteil, ob das Budget auf Kurs ist.\nDauerregeln: Zeige mir das exakte fertige Ergebnis, bevor irgendetwas veröffentlicht, gesendet, ausgegeben oder geändert wird.',
+4:'Ziel: Prüfe jeden Morgen um 9 die Social-Trends.\nGrenzen: Berichte nur Trends mit echter Interaktion und passe nur Ideen an, die wirklich passen.\nPrüfung: Berichte, was passt, was nicht passt, und gib 2 oder 3 angepasste Ideen.\nStopp: Niemals aus diesem Job veröffentlichen, liken, kommentieren oder folgen.\nErgebnis: ein kurzer Morgenbericht.\nDauerregeln: Zeige mir das exakte fertige Ergebnis, bevor irgendetwas veröffentlicht, gesendet, ausgegeben oder geändert wird.\nZeitplan: Führe dies nach Zeitplan aus, berichte nur, und bleibe an ruhigen Tagen still.'},
 ideas:['Eine Arbeits-E-Mail schreiben','Eine Reise planen','Ein Wochenbudget machen','Für eine Prüfung lernen','Einen Social-Media-Beitrag schreiben','Eine Trainingswoche planen','Mit dem kochen, was im Kühlschrank ist','Einen Punkt für meinen Lebenslauf schreiben','Eine Geburtstagsfeier planen','Ein neues Thema lernen','Zwei Handys vergleichen','Eine kleine Geschäftsidee starten'],
-msgs:{detectedT:'Erkannt: {cat}, {tier}.',exampleT:'Beispiel-Prompt, {tier}.',aboutT:'Dieser Prompt handelt von: {idea}.',
+msgs:{proTierNote:'Das ist das Briefing. Pro macht daraus einen lebenden Vertrag — Freigabetore, Berichtsrythmus, Stoppbedingungen — aufbewahrt in deinem Arbeitsbereich.',govProLine:'Erstelle deinen, speichere ihn und übergib ihn deinem Agenten — das ist Pro.',savedProLine:'Deine Briefings leben hier. Deine Verträge, Regeln und Systeme leben in Pro.',detectedT:'Erkannt: {cat}, {tier}.',exampleT:'Beispiel-Prompt, {tier}.',aboutT:'Dieser Prompt handelt von: {idea}.',
 chkPrefix:'Prompt-Prüfung: ',chkCovered:' abgedeckt',chkMissing:'. Noch nicht hinzugefügt: ',partsCovered:' Abgedeckte Teile: ',
 nudge:'Füge ein Detail hinzu, um ihn stärker zu machen, etwa wo, wann oder das Budget.',
 tier1Note:'Hinweis: Deine Einträge aus Details hinzufügen stehen nicht in einem Stufe-1-Prompt. Stufe 1 ist nur das Ziel. Versuche es eine Stufe höher, um sie einzuschließen.',
@@ -785,7 +788,7 @@ function showResult(idea,tier,cat,noPush,noScroll){
   if(!noPush){pushRecent({text:currentFull,tier:tier,cat:cat||'',idea:idea});}
   document.getElementById('whyLine').textContent=m.aboutT.replace('{idea}',idea);
   document.getElementById('checkLine').textContent=checkText(s);
-  document.getElementById('tierLine').textContent=tname+'. '+info.why+m.partsCovered+s.parts.map(function(p){return (p[1]?'\u2713 ':'\u25cb ')+p[0];}).join(', ')+'.';
+  document.getElementById('proLine').textContent=tier>=3?m.proTierNote:'';document.getElementById('tierLine').textContent=tname+'. '+info.why+m.partsCovered+s.parts.map(function(p){return (p[1]?'\u2713 ':'\u25cb ')+p[0];}).join(', ')+'.';
   document.getElementById('liftLine').textContent=info.lift;
   if(!noScroll){document.getElementById('resultCard').scrollIntoView({behavior:'smooth'});}
   saveCurrent();
