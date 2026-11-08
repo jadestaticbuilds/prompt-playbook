@@ -274,7 +274,7 @@ function buildPrompt(idea,cat,tier){
   var dNever=(document.getElementById('detailNever')||{}).value||'';
   var dDone=(document.getElementById('detailDone')||{}).value||'';
   dLimits=dLimits.trim();dNever=dNever.trim();dDone=dDone.trim();
-  if(dLimits){p=p.replace('Limits: ','Limits: my limits: '+dLimits+'. ');}
+  if(dLimits){p=p.split('\n').map(function(line){return line.indexOf('Limits: ')===0?line+' My hard limits: '+dLimits.replace(/\.$/,'')+'.':line;}).join('\n');}
   if(dNever){p=p.replace('Stop: ','Stop: never '+dNever+'. Also: ');}
   if(dDone){p+='\nDone looks like: '+dDone+'.';}
   if(tier>=3){
