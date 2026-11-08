@@ -58,7 +58,7 @@ main>.card:nth-of-type(2){grid-column:1/-1}
 main.has-result>.card:nth-of-type(2){grid-column:1}
 main>.card:nth-of-type(3){grid-column:2;margin-top:0}
 /* Card 4: saved prompts, full width, list in two columns */
-main>.card:last-of-type{grid-column:1/-1}
+#savedCard{grid-column:1/-1}
 /* Final footer note spans both columns */
 main>p.note{grid-column:1/-1}
 /* Buttons get a hover state for mouse parity with the active scale tap */
@@ -164,6 +164,22 @@ button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-vi
 <div id="recentWrap"><h3>Recent prompts</h3><ul id="recentList"></ul></div>
 </div>
 
+<div class="card" id="savedCard"><h2>Your saved prompts</h2>
+<p class="note">Private by design:</p>
+<ul>
+<li>No account, no signup.</li>
+<li>Your prompts and ideas are never sent anywhere. They live only in this browser.</li>
+<li>Anonymous visit counts (GoatCounter) help us see which parts get used. Prompt content is never tracked. Use Export below as your backup.</li>
+</ul>
+<label for="savedSearch">Search your saved prompts</label>
+<input type="text" id="savedSearch" placeholder="Type to filter your saved prompts" oninput="renderMy()">
+<ul id="mylist"></ul>
+<p class="note" id="savedCopyNote"></p>
+<button class="secondary" onclick="exportMy()">Export saved prompts</button>
+<button class="secondary" onclick="document.getElementById('importFile').click()">Import saved prompts</button>
+<input id="importFile" type="file" accept=".json,application/json" style="display:none" onchange="importMy(event)">
+</div>
+
 <div class="card"><h2>The part free prompt lists skip: gates and stop rules</h2>
 <p>A prompt tells an agent what to type. A system tells it what it may do alone, what needs your approval, and what must never happen. That second part is called the <b>governance layer</b>, and it is why delegations stop blowing up.</p>
 <p class="note">A filled delegation contract looks like this:</p>
@@ -186,24 +202,8 @@ Stop: if a number does not add up, stop and say so.</pre>
 <p class="note">When it launches, the free first chapter and the paid editions will be linked right here. Nothing about this page changes when it does.</p>
 </div>
 
-<div class="card"><h2>Your saved prompts</h2>
-<p class="note">Private by design:</p>
-<ul>
-<li>No account, no signup.</li>
-<li>Your prompts and ideas are never sent anywhere. They live only in this browser.</li>
-<li>Anonymous visit counts (GoatCounter) help us see which parts get used. Prompt content is never tracked. Use Export below as your backup.</li>
-</ul>
-<label for="savedSearch">Search your saved prompts</label>
-<input type="text" id="savedSearch" placeholder="Type to filter your saved prompts" oninput="renderMy()">
-<ul id="mylist"></ul>
-<p class="note" id="savedCopyNote"></p>
-<button class="secondary" onclick="exportMy()">Export saved prompts</button>
-<button class="secondary" onclick="document.getElementById('importFile').click()">Import saved prompts</button>
-<input id="importFile" type="file" accept=".json,application/json" style="display:none" onchange="importMy(event)">
-</div>
-
 <p class="note">How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What's missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.</p>
-<p class="note">Prompt Playbook, the free app, v2026.11.2, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
+<p class="note">Prompt Playbook, the free app, v2026.11.3, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
 </main>
 <script>
 var commonIdeas=['Write a work email','Plan a trip','Make a weekly budget','Study for a test','Write a social media post','Plan a workout week','Cook with what is in the fridge','Write a resume bullet','Plan a birthday party','Learn a new topic','Compare two phones','Start a small business idea'];
@@ -224,6 +224,14 @@ function categoryFor(idea){
   if(/\bplan\b|\btrip\b|\bparty\b|\bbirthday\b|\bvacation\b|\bitinerary\b|\bwedding\b|\bbook\b|\bflight\b|\bhotel\b/.test(s))return 'planning';
   if(/\bcook\w*\b|\brecipe\b|\bfridge\b|\bmeal\b|\bdinner\b|\bbake\b|\bingredients?\b/.test(s))return 'cooking';
   if(/\bstudy\b|\bexam\b|\btest\b|\bhomework\b|\blearn\b/.test(s))return 'study';
+  if(/\binvestig\w*\b|\binvestigaci\u00f3n\b/.test(s))return 'research';
+  if(/\bcompara\w*\b|\bcomprar\b|\bcompra\b|\bprecio\b|\boferta\b|\bchaqueta\b|\bzapatos\b|\btel\u00e9fono\b|\btelefono\b|\bcelular\b/.test(s))return 'shopping';
+  if(/\bpresupuesto\b|\bdinero\b|\bgastos?\b|\bsueldo\b|\bsalario\b|\bdeuda\b|\bahorros?\b|\bfacturas?\b/.test(s))return 'money';
+  if(/\bcorreo\b|\bcarta\b|\bmensaje\b|\bcurr\u00edculum\b|\bcurriculum\b|\bescribe\w*\b|\bredacta\w*\b/.test(s))return 'writing';
+  if(/\bviaje\b|\bfiesta\b|\bcumplea\u00f1os\b|\bvacaciones\b|\bitinerario\b|\bvuelo\b|\bhotel\b|\breserv\w*\b|\bplan\b/.test(s))return 'planning';
+  if(/\bcocina\w*\b|\breceta\b|\bnevera\b|\brefrigerador\b|\bcomida\b|\bcena\b|\bingredientes?\b/.test(s))return 'cooking';
+  if(/\bestudi\w*\b|\bexamen\b|\baprend\w*\b|\btarea\b/.test(s))return 'study';
+  if(/\bredes sociales\b|\bpublicaci\u00f3n\b|\bpublicacion\b/.test(s))return 'social';
   return 'general';
 }
 var CHECKS={
@@ -360,6 +368,7 @@ function generate(idea,tier){
   if(!idea){idea=pick(commonIdeas);document.getElementById('idea').value=idea;}
   var cat=categoryFor(idea);
   currentFull=buildPrompt(idea,cat,tier);baseFull=currentFull;currentTier=tier;
+  if(tier===1){var anyDetail=['detailLimits','detailNever','detailDone'].some(function(id){var e=document.getElementById(id);return e&&e.value.trim();});if(anyDetail){setTimeout(function(){document.getElementById('nudgeLine').textContent='Note: your Add details entries are not in a Tier 1 prompt. Tier 1 is just the goal. Try it one tier up to include them.';},0);}}
   currentShort=shortFor(currentFull);
   showingShort=false;
   showResult(idea,tier,cat);
@@ -395,10 +404,19 @@ var baseFull='';
 function shortForBetter(text){
   return text.split('\n').map(function(line){
     if(line.indexOf('Stop:')===0)return line;
+    if(line.indexOf('Limits: ')===0){
+      var hl=line.indexOf(' My hard limits: ');
+      if(hl===-1)return line.slice(0,line.indexOf('. ')===-1?line.length:line.indexOf('. ')+1);
+      var f=line.indexOf('. ');
+      return line.slice(0,f+1)+line.slice(hl);
+    }
     if(line.indexOf('Rules that travel:')===0){
       var first=line.indexOf('. ');
       var never=line.lastIndexOf('Never ');
-      return never>first?line.slice(0,first+1)+' '+line.slice(never):line;
+      var out=never>first?line.slice(0,first+1)+' '+line.slice(never):line;
+      var rb=line.indexOf(' Report back like this: ');
+      if(rb!==-1){var seg=line.slice(rb+1);var cut=seg.indexOf('. ',seg.indexOf(': '));out+=' '+(cut===-1?seg:seg.slice(0,cut+1));}
+      return out;
     }
     if(line.indexOf('Schedule:')===0){
       var f=line.indexOf('. ');
