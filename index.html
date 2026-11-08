@@ -11,27 +11,38 @@ try {
   }
 } catch (e) {}
 </script>
-<title>Prompt Playbook</title>
+<title>Prompt Playbook — the free app | Jade Static Builds</title>
+<meta name="description" content="Prompt Playbook, the free app: learn the tiers of prompting in plain words, then build a ready prompt with a goal, limits, a check, and a stop rule. No account, nothing uploaded.">
+<link rel="canonical" href="https://jadestaticbuilds.github.io/prompt-playbook/">
+<meta name="theme-color" content="#04100b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Prompt Playbook — the free app">
+<meta property="og:description" content="Learn the tiers, then build a prompt with a goal, limits, a check, and a stop rule. The free front door to a full system for delegating to an AI agent, gates and all.">
+<meta property="og:url" content="https://jadestaticbuilds.github.io/prompt-playbook/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Prompt Playbook — the free app">
+<meta name="twitter:description" content="Learn the tiers, then build a prompt with a goal, limits, a check, and a stop rule.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2304100b'/%3E%3Cg stroke='%232fe6a8' stroke-width='7' stroke-linecap='round'%3E%3Cpath d='M32 10v44M10 32h44M17 17l30 30M47 17L17 47'/%3E%3C/g%3E%3C/svg%3E">
 <style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#04070d;color:#e6fbff;margin:0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));padding-bottom:34px;padding-bottom:max(34px, calc(20px + env(safe-area-inset-bottom)));background-image:linear-gradient(rgba(0,240,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.07) 1px,transparent 1px),radial-gradient(ellipse at 20% 0%,rgba(0,240,255,.18),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(255,0,128,.14),transparent 50%);background-size:44px 44px,44px 44px,auto,auto;background-attachment:fixed}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#04100b;color:#eafff6;margin:0;padding:20px 20px calc(20px + env(safe-area-inset-bottom));padding-bottom:34px;padding-bottom:max(34px, calc(20px + env(safe-area-inset-bottom)));background-image:linear-gradient(rgba(47,230,168,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(47,230,168,.06) 1px,transparent 1px),radial-gradient(ellipse at 20% 0%,rgba(47,230,168,.16),transparent 55%),radial-gradient(ellipse at 90% 20%,rgba(0,240,255,.10),transparent 50%);background-size:44px 44px,44px 44px,auto,auto;background-attachment:fixed}
 main{max-width:680px;margin:0 auto}
-h1{font-size:30px;margin:0 0 4px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 18px rgba(0,240,255,.8)} p.sub{color:#9fd8e2;margin:0 0 20px;line-height:1.5}
-.card{background:rgba(8,20,32,.88);border:1px solid rgba(0,240,255,.45);border-radius:16px;padding:16px;margin:0 0 14px;box-shadow:0 0 24px rgba(0,240,255,.12),inset 0 0 0 1px rgba(255,255,255,.03)}
-h2{font-size:18px;margin:0 0 8px;color:#7df9ff;letter-spacing:.5px}
-h3{font-size:16px;margin:12px 0 4px;color:#e6fbff}
-textarea{width:100%;box-sizing:border-box;border-radius:12px;padding:12px;background:#020b14;color:#e6fbff;border:1px solid rgba(0,240,255,.5);font-size:16px}
-button{background:linear-gradient(135deg,#00f0ff,#0066ff);color:#02131a;border:0;border-radius:12px;padding:12px 16px;font-size:16px;font-weight:700;cursor:pointer;margin:6px 6px 0 0;min-height:48px;box-shadow:0 0 18px rgba(0,240,255,.35)}
-button.secondary{background:#0e2233;color:#7df9ff;border:1px solid rgba(0,240,255,.4);box-shadow:none} button:active{transform:scale(.97)}
+h1{font-size:30px;margin:0 0 4px;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 18px rgba(47,230,168,.75)} p.brand{color:#2fe6a8;font-size:13px;font-weight:800;letter-spacing:3px;margin:0 0 6px} p.sub{color:#a9dcc5;font-size:15px;margin:0 0 20px;line-height:1.5}
+.card{background:rgba(6,26,18,.9);border:1px solid rgba(47,230,168,.45);border-radius:16px;padding:16px;margin:0 0 14px;box-shadow:0 0 24px rgba(47,230,168,.12),inset 0 0 0 1px rgba(255,255,255,.03)}
+h2{font-size:18px;margin:0 0 8px;color:#5ff2bc;letter-spacing:.5px}
+h3{font-size:16px;margin:12px 0 4px;color:#eafff6}
+textarea{width:100%;box-sizing:border-box;border-radius:12px;padding:12px;background:#020d08;color:#eafff6;border:1px solid rgba(47,230,168,.5);font-size:16px} input[type=text]{width:100%;box-sizing:border-box;border-radius:12px;padding:12px;background:#020d08;color:#eafff6;border:1px solid rgba(47,230,168,.5);font-size:16px;margin:0 0 8px} label{display:block;font-weight:700;margin:10px 0 4px} details.saveditem{margin:0 0 6px} details.saveditem summary{cursor:pointer;line-height:1.5;padding:6px 0} .savedbody{margin:6px 0}
+button{background:linear-gradient(135deg,#2fe6a8,#0ea573);color:#02130b;border:0;border-radius:12px;padding:12px 16px;font-size:16px;font-weight:700;cursor:pointer;margin:6px 6px 0 0;min-height:48px;box-shadow:0 0 18px rgba(47,230,168,.35)}
+button.secondary{background:#0a2015;color:#5ff2bc;border:1px solid rgba(47,230,168,.4);box-shadow:none} button:active{transform:scale(.97)}
 button.selected{outline:3px solid #facc15}
-.chip{background:#0e2233;color:#7df9ff;border:1px solid rgba(0,240,255,.35);font-size:14px;padding:8px 12px;min-height:48px;box-shadow:none}
-pre{white-space:pre-wrap;background:#020b14;border:1px solid rgba(0,240,255,.3);border-radius:12px;padding:14px;font-size:15px;line-height:1.6;margin:12px 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.note{color:#9fd8e2;font-size:14px;line-height:1.5}
+.chip{background:#0a2015;color:#5ff2bc;border:1px solid rgba(47,230,168,.35);font-size:14px;padding:8px 12px;min-height:48px;box-shadow:none}
+pre{white-space:pre-wrap;background:#020d08;border:1px solid rgba(47,230,168,.3);border-radius:12px;padding:14px;font-size:15px;line-height:1.6;margin:12px 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.note{color:#a9dcc5;font-size:14.5px;line-height:1.55}
 ul{line-height:1.6;padding-left:20px}
 .big{font-size:18px;padding:14px 20px;width:100%;margin:12px 0 0}
 .checkline{font-size:18px;font-weight:800;color:#facc15}
-.tiercard{border:1px solid rgba(0,240,255,.3);border-radius:12px;padding:12px;margin:10px 0;background:#020b14}
-.tiercard p{margin:4px 0;line-height:1.5;color:#e6fbff}
-.tiercard .note{color:#9fd8e2}
+.tiercard{border:1px solid rgba(47,230,168,.3);border-radius:12px;padding:12px;margin:10px 0;background:#020d08}
+.tiercard p{margin:4px 0;line-height:1.5;color:#eafff6}
+.tiercard .note{color:#a9dcc5}
 @media (min-width:1024px){
 /* Desktop: centered wide shell, cards span in a 2-column grid */
 main{max-width:1100px;padding:0 32px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;column-gap:16px;align-items:start}
@@ -47,13 +58,11 @@ main>.card:nth-of-type(2){grid-column:1/-1}
 main.has-result>.card:nth-of-type(2){grid-column:1}
 main>.card:nth-of-type(3){grid-column:2;margin-top:0}
 /* Card 4: saved prompts, full width, list in two columns */
-main>.card:nth-of-type(4){grid-column:1/-1}
-main>.card:nth-of-type(4)>ul{display:grid;grid-template-columns:1fr 1fr;gap:8px 24px}
+main>.card:last-of-type{grid-column:1/-1}
 /* Final footer note spans both columns */
 main>p.note{grid-column:1/-1}
 /* Buttons get a hover state for mouse parity with the active scale tap */
 button:hover{filter:brightness(1.12)}
-button:focus-visible{outline:3px solid #facc15;outline-offset:2px}
 #chips{display:flex;flex-wrap:wrap;gap:4px}
 #chips .chip{margin-right:0}
 #tierBtns{display:flex;flex-wrap:wrap;gap:4px}
@@ -70,11 +79,14 @@ h1{font-size:40px}
 <style>
 /* prevent text selection popup on mobile tap */
 html,body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;}
+textarea,.savedbody,pre{-webkit-user-select:text;-moz-user-select:text;-ms-user-select:text;user-select:text;-webkit-touch-callout:default}
+button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #facc15;outline-offset:2px}
 </style>
 </head>
 <body><main>
+<p class="brand">JADE STATIC BUILDS</p>
 <h1>Prompt Playbook</h1>
-<p class="sub">You do not need to know anything about prompts. Agentic AI means the agent does a job for you, not just answers a question. You give it a goal, limits, a check, and a stop rule, and it works to those rules. This page teaches you the tiers, then builds a prompt you can try right away. This page only builds the prompt text. Paste it into an AI chat to use it, it does not run an agent or set a schedule by itself.</p>
+<p class="sub"><b>The free app.</b> Built from a working system that runs dozens of published apps, a daily content program, and a weekly review, with approval gates on anything public. You do not need to know anything about prompts. Agentic AI means the agent does a job for you, not just answers a question. You give it a goal, limits, a check, and a stop rule, and it works to those rules. This page teaches you the tiers, then builds a prompt you can try right away. This page only builds the prompt text. Paste it into an AI chat to use it, it does not run an agent or set a schedule by itself.</p>
 
 <div class="card"><h2>1. The tiers, in plain words</h2>
 <p class="note">Higher is not always better. A higher tier gives the agent more freedom, so use it only when you trust the rules you gave it. For anything public, irreversible, or paid, stay at a lower tier with your own approval.</p>
@@ -88,7 +100,7 @@ html,body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;us
 <button class="secondary" onclick="useExample(2)">Try this tier example</button></div>
 <div class="tiercard"><h3>Tier 3: Run an area for me</h3>
 <p><b>You do:</b> hand over a whole area with standing rules, what is allowed, what is never allowed, and how it reports back. <b>The agent does:</b> keep running that area, and judge its own work honestly.</p>
-<p class="note">Example: "Keep my prompt collection useful. Review it, flag templates nobody uses, and report what changed and why. Never publish or change an app without my yes." This is a system, not a single task.</p>
+<p class="note">Example: "Keep my prompt collection useful. Review it, flag templates nobody uses, and report what changed and why. Never publish or change an app without my yes." This is a system, not a single task. <b>Standing rules</b> are rules you set once that travel with every task in the area, so you never re-explain them.</p>
 <button class="secondary" onclick="useExample(3)">Try this tier example</button></div>
 <div class="tiercard"><h3>Tier 4: Run it on a clock</h3>
 <p><b>You do:</b> take a Tier 3 system and put it on a schedule. <b>The agent does:</b> run it at set times, stay quiet on quiet days, and report only what changed.</p>
@@ -98,7 +110,24 @@ html,body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;us
 </div>
 
 <div class="card"><h2>2. What do you want to do?</h2>
+<label for="idea">Your idea</label>
 <textarea id="idea" rows="3" placeholder="For example: plan a trip to Miami, write a work email, compare two phones, make a weekly budget"></textarea>
+<details id="detailsWrap"><summary><b>Add details (optional, makes the prompt much stronger)</b></summary>
+<label for="detailLimits">Limits that matter (budget, time, size, audience)</label>
+<input type="text" id="detailLimits" placeholder="For example: under $500, done by Friday, for beginners">
+<label for="detailNever">Must never happen</label>
+<input type="text" id="detailNever" placeholder="For example: never book, buy, send, or publish without my yes">
+<label for="detailDone">Done looks like</label>
+<input type="text" id="detailDone" placeholder="For example: a shortlist of 3 with prices I can pick from">
+</details>
+<div id="tier3Wrap" style="display:none">
+<label for="reportHow">Tier 3: how should it report back to you?</label>
+<input type="text" id="reportHow" placeholder="For example: a short report after each run, and a weekly summary">
+</div>
+<div id="tier4Wrap" style="display:none">
+<label for="scheduleWhen">Tier 4: when should it run?</label>
+<input type="text" id="scheduleWhen" placeholder="For example: every weekday morning at 9">
+</div>
 <p class="note">Tap an idea below if you are not sure where to start, or type your own.</p>
 <div id="chips"></div>
 <p class="note"><b>How far do you want to go?</b> Tap a tier. This changes what the prompt includes.</p>
@@ -113,19 +142,21 @@ html,body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;us
 <p class="note">Make my prompt builds around your idea and the tier you picked. Random prompt picks a random idea and a random tier, then explains that tier for that prompt, so you learn by seeing it.</p>
 </div>
 
-<div class="card" id="resultCard" style="display:none"><h2>3. Here is your ready prompt</h2>
+<div class="card" id="resultCard" style="display:none" aria-live="polite"><h2>3. Here is your ready prompt</h2>
 <p class="note" id="whyLine"></p>
+<label for="result">Your ready prompt (you can edit it)</label>
 <textarea id="result" rows="10" style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.6"></textarea>
 <p class="note" id="detectedLine"></p>
 <p class="note" id="nudgeLine"></p>
 <p class="note" id="copyNote"></p>
 <p class="note" id="lengthNote"></p>
 <p class="note" id="saveNote"></p>
-<p class="note">Next step: paste this prompt into any AI chat and press send. This page does not run anything by itself.</p>
+<p class="note">Next step: paste this prompt into any AI chat and press send. This page does not run anything by itself. Then, if it worked, save it below. If you want to learn the system behind it, keep reading under the prompt.</p>
 <p class="checkline" id="checkLine"></p>
 <p class="note" id="tierLine"></p>
 <p class="note" id="liftLine"></p>
-<button onclick="copyResult()">Copy this prompt</button>
+<button id="copyBtn" onclick="copyResult()">Copy this prompt</button>
+<button class="secondary" onclick="tryTierUp()">Try it one tier up</button>
 <button class="secondary" onclick="makeShorter()">Make it shorter</button>
 <button class="secondary" onclick="makeLonger()">Make it longer</button>
 <button class="secondary" onclick="surpriseMe()">Try another one</button>
@@ -133,8 +164,37 @@ html,body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;us
 <div id="recentWrap"><h3>Recent prompts</h3><ul id="recentList"></ul></div>
 </div>
 
+<div class="card"><h2>The part free prompt lists skip: gates and stop rules</h2>
+<p>A prompt tells an agent what to type. A system tells it what it may do alone, what needs your approval, and what must never happen. That second part is called the <b>governance layer</b>, and it is why delegations stop blowing up.</p>
+<p class="note">A filled delegation contract looks like this:</p>
+<pre>Mandate: keep my weekly budget tidy.
+May do alone: review spending and draft a report.
+May do with my approval: suggest changes to the budget.
+Never: move money, pay a bill, or change an account.
+Reporting: one short report after each run.
+Stop: if a number does not add up, stop and say so.</pre>
+<p class="note"><b>Before:</b> "Handle my budget." (No limits, no gate. Anything could happen.)<br><b>After:</b> the contract above. Same job, now it can be trusted with it. The full governance chapter, with the gate matrix and the stop-rule library, is in the paid edition.</p>
+<h3>Three decision prompts, free to use</h3>
+<p><b>Three doors:</b> "Give me 3 genuinely different directions for this. One line each on what makes it different. Then I will choose."<br>
+<b>Do less:</b> "What is the smallest version of this that is still worth shipping?"<br>
+<b>Stranger test:</b> "Explain this to someone who has never seen any of my stuff."<br>
+<span class="note">Seven more, each taught with an example, are in the paid edition.</span></p>
+</div>
+
+<div class="card"><h2>Go deeper</h2>
+<p>This free app stays free. A full paid edition is being built from the same system: the complete governance chapter, a library of worked before-and-after prompts, every decision prompt taught, fillable worksheets, and a 7-day plan to set up your own first delegated system.</p>
+<p class="note">When it launches, the free first chapter and the paid editions will be linked right here. Nothing about this page changes when it does.</p>
+</div>
+
 <div class="card"><h2>Your saved prompts</h2>
-<p class="note">Saved in this browser only. Nothing is uploaded anywhere.</p>
+<p class="note">Private by design:</p>
+<ul>
+<li>No account, no signup.</li>
+<li>Your prompts and ideas are never sent anywhere. They live only in this browser.</li>
+<li>Anonymous visit counts (GoatCounter) help us see which parts get used. Prompt content is never tracked. Use Export below as your backup.</li>
+</ul>
+<label for="savedSearch">Search your saved prompts</label>
+<input type="text" id="savedSearch" placeholder="Type to filter your saved prompts" oninput="renderMy()">
 <ul id="mylist"></ul>
 <p class="note" id="savedCopyNote"></p>
 <button class="secondary" onclick="exportMy()">Export saved prompts</button>
@@ -142,7 +202,8 @@ html,body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;us
 <input id="importFile" type="file" accept=".json,application/json" style="display:none" onchange="importMy(event)">
 </div>
 
-<p class="note">How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What's missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#d9c8ff">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.</p>
+<p class="note">How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What's missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.</p>
+<p class="note">Prompt Playbook, the free app, v2026.11.2, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
 </main>
 <script>
 var commonIdeas=['Write a work email','Plan a trip','Make a weekly budget','Study for a test','Write a social media post','Plan a workout week','Cook with what is in the fridge','Write a resume bullet','Plan a birthday party','Learn a new topic','Compare two phones','Start a small business idea'];
@@ -150,37 +211,87 @@ var chipsEl=document.getElementById('chips');
 commonIdeas.forEach(function(idea){var b=document.createElement('button');b.className='chip';b.textContent=idea;b.onclick=function(){document.getElementById('idea').value=idea;generate(idea,selectedTier);};chipsEl.appendChild(b);});
 function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
 var selectedTier=2;
-function selectTier(n){selectedTier=n;[1,2,3,4].forEach(function(i){document.getElementById('tierBtn'+i).className=i===n?'secondary selected':'secondary';});}
+function selectTier(n){selectedTier=n;[1,2,3,4].forEach(function(i){document.getElementById('tierBtn'+i).className=i===n?'secondary selected':'secondary';});var w3=document.getElementById('tier3Wrap'),w4=document.getElementById('tier4Wrap');if(w3)w3.style.display=n>=3?'':'none';if(w4)w4.style.display=n>=4?'':'none';}
 function categoryFor(idea){
   var s=idea.toLowerCase();
-  if(/instagram|threads|social|caption|reel|post about/.test(s))return 'social';
-  if(/app|website|build a tool|program|code a/.test(s))return 'app';
-  if(/every day|daily|weekly|remind|routine|habit|check.*every/.test(s))return 'recurring';
-  if(/email|letter|message|resume|cover letter|write a/.test(s))return 'writing';
-  if(/plan|trip|party|birthday|vacation|itinerary|wedding/.test(s))return 'planning';
-  if(/cook|recipe|fridge|meal|dinner|bake|ingredient/.test(s))return 'cooking';
-  if(/study|exam|test|homework|learn/.test(s))return 'study';
+  if(/\binstagram\b|\bthreads\b|\bsocial media\b|\bcaption\b|\breel\b|\bpost\b/.test(s))return 'social';
+  if(/\bresearch\b|\binvestigate\b|\bfind out\b|\bpros and cons\b/.test(s))return 'research';
+  if(/\bcompare\b|\bbuy\b|\bshopping\b|\bshop for\b|\bprice\b|\bdeal\b|\bjacket\b|\bshoes\b|\bphones?\b|\bunder \$/.test(s))return 'shopping';
+  if(/\bbudget\b|\bmoney\b|\bexpenses?\b|\bspending\b|\bsalary\b|\bnegotiat\w*\b|\bdebt\b|\bsavings?\b|\bbills?\b/.test(s))return 'money';
+  if(/\bapp\b|\bwebsite\b|\bbuild a tool\b|\bprogram\b|\bcode\b/.test(s))return 'app';
+  if(/\bevery day\b|\bdaily\b|\bweekly\b|\bremind\w*\b|\broutine\b|\bhabit\b|check.*\bevery\b/.test(s))return 'recurring';
+  if(/\bemail\b|\bletter\b|\bmessage\b|\bresume\b|\bcover letter\b|\bwrite\b/.test(s))return 'writing';
+  if(/\bplan\b|\btrip\b|\bparty\b|\bbirthday\b|\bvacation\b|\bitinerary\b|\bwedding\b|\bbook\b|\bflight\b|\bhotel\b/.test(s))return 'planning';
+  if(/\bcook\w*\b|\brecipe\b|\bfridge\b|\bmeal\b|\bdinner\b|\bbake\b|\bingredients?\b/.test(s))return 'cooking';
+  if(/\bstudy\b|\bexam\b|\btest\b|\bhomework\b|\blearn\b/.test(s))return 'study';
   return 'general';
 }
+var CHECKS={
+    social:'Show me the exact finished post first, so I can approve it before anything is posted.',
+    app:'Show me how it works before you call it done, test it on a small phone screen, confirm you are publishing the latest version you tested, and check the live links and counts before calling it done.',
+    cooking:'List the ingredients you are using from what I have, before the steps, so I can spot anything missing.',
+    recurring:'Report only what actually changed since last time, and say plainly when nothing changed.',
+    writing:'Show me the finished draft, and flag any sentence that could be read the wrong way.',
+    planning:'Check the plan against real times, prices, and opening hours where they matter, and flag anything unverified.',
+    study:'Check your explanation by giving me 3 practice questions, with answers, at the end.',
+    shopping:'For each option, give the price and where you found it, and say which details you could not verify.',
+    research:'Cite the source behind each key claim, and flag where sources disagree.',
+    money:'Show the math, line by line, so I can check every total myself.',
+    general:'Check your answer against the facts you used, and say what is still uncertain.'
+  };
+var STOPS={
+    social:'Do not post, send, or publish anything without my yes for that exact post.',
+    app:'Do not post, send, buy, or book anything without my yes.',
+    cooking:'Do not invent ingredients I do not have, and do not add steps I did not ask for.',
+    recurring:'Do not post, send, buy, or book anything without my yes, and do not invent work on quiet days.',
+    writing:'Do not send or post it anywhere. Draft only, until I say send.',
+    planning:'Do not book, buy, or reserve anything without my yes.',
+    study:'Do not guess or invent facts. If you do not know, say so.',
+    shopping:'Do not buy, order, or book anything without my yes.',
+    research:'Do not invent facts or citations. If a source does not say it, do not claim it.',
+    money:'Do not move money, pay a bill, invest, or change an account without my yes.',
+    general:'Do not guess or invent facts, and do not post, send, buy, or book anything without my yes.'
+  };
 function buildPrompt(idea,cat,tier){
-  var check=pick(['Show it to me first before you finish, so I can approve it.','Check your answer against the facts you used, and say what is still uncertain.','Show me a short version first, then the full version.']);
-  var stop=pick(['Do not guess or invent facts. If you do not know, say so.','Do not add extra costs or steps I did not ask for.','Do not post, send, buy, or book anything without my yes.']);
+  var check=CHECKS[cat]||CHECKS.general;
+  var stop=STOPS[cat]||STOPS.general;
   if(tier===1){return 'Goal: help me '+idea+'.';}
   var base={
     social:'Goal: help me '+idea+'.\nLimits: keep it clear, short, and in a normal human voice. No filler words, no hype, and be decisive, not unsure.\nCheck: '+check+'\nStop: '+stop+'\nOutput: one finished post I can copy and paste, nothing else to fix.',
-    app:'Goal: help me '+idea+'.\nLimits: keep it simple, work on a phone, no signup, no extra features I did not ask for, and keep the first version private until I approve it public.\nCheck: show me how it works before you call it done, test it on a small phone screen, confirm you are publishing the latest version you tested, and check the live links and counts before calling it done.\nStop: '+stop+'\nOutput: a working version I can try right away, plus one line on what to test first.',
-    cooking:'Goal: help me '+idea+'.\nLimits: use only what I actually have, unless I say to suggest shopping. Keep it simple and practical.\nCheck: '+check+'\nStop: do not invent ingredients I do not have, and do not add steps I did not ask for.\nOutput: a simple recipe in order, with what to use and how long each step takes.',
+    app:'Goal: help me '+idea+'.\nLimits: keep it simple, work on a phone, no signup, no extra features I did not ask for, and keep the first version private until I approve it public.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a working version I can try right away, plus one line on what to test first.',
+    cooking:'Goal: help me '+idea+'.\nLimits: use only what I actually have, unless I say to suggest shopping. Keep it simple and practical.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a simple recipe in order, with what to use and how long each step takes.',
     recurring:'Goal: help me '+idea+'.\nLimits: keep it short, only tell me when something actually changed, and stay quiet on quiet days.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a short report I can read in under a minute.',
     writing:'Goal: help me '+idea+'.\nLimits: keep it polite, clear, and short. Use plain words, short sentences, and one clear ask at the end.\nCheck: '+check+'\nStop: '+stop+'\nOutput: one finished draft I can copy and paste.',
     planning:'Goal: help me '+idea+'.\nLimits: keep it realistic for time, money, and who is involved. No impossible schedules.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a simple step-by-step plan, in order, with what to do first.',
     study:'Goal: help me '+idea+'.\nLimits: explain it in plain words first, then add detail only where I need it. Use examples, not jargon.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a short explanation, then 3 practice questions with answers.',
+    shopping:'Goal: help me '+idea+'.\nLimits: only use verified current prices and specs. List my hard constraints back to me first, and never suggest a substitute that breaks one.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a short shortlist, best pick first, with one line on why it wins.',
+    research:'Goal: help me '+idea+'.\nLimits: use reliable sources, prefer recent ones, and separate verified facts from estimates and opinions.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a short summary, the key findings, and what is still uncertain.',
+    money:'Goal: help me '+idea+'.\nLimits: only use the numbers I gave you. Never move money or change an account. Keep it simple enough to follow weekly.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a simple breakdown I can follow, with anything over budget flagged.',
     general:'Goal: help me '+idea+'.\nLimits: keep it clear and practical, and only use information that fits what I asked for.\nCheck: '+check+'\nStop: '+stop+'\nOutput: a clear answer I can act on, in simple steps.'
   };
   var p=base[cat]||base.general;
-  if(tier===3){p+='\nRules that travel: this is a standing area, not a one-off task. Keep a short log of what changed and why. Report back what was useful and what was noise. Never publish, post, send, buy, or change an app or account without my yes for that exact item.';}
-  if(tier===4){p+='\nRules that travel: this is a standing area, not a one-off task. Keep a short log of what changed and why. Report back what was useful and what was noise. Never publish, post, send, buy, or change an app or account without my yes for that exact item.\nSchedule: run this on a clock, report only, and stay quiet on quiet days. The schedule does not remove my approval for anything public or irreversible.';}
+  var dLimits=(document.getElementById('detailLimits')||{}).value||'';
+  var dNever=(document.getElementById('detailNever')||{}).value||'';
+  var dDone=(document.getElementById('detailDone')||{}).value||'';
+  dLimits=dLimits.trim();dNever=dNever.trim();dDone=dDone.trim();
+  if(dLimits){p=p.replace('Limits: ','Limits: my limits: '+dLimits+'. ');}
+  if(dNever){p=p.replace('Stop: ','Stop: never '+dNever+'. Also: ');}
+  if(dDone){p+='\nDone looks like: '+dDone+'.';}
+  if(tier>=3){
+    var repHow=((document.getElementById('reportHow')||{}).value||'').trim();
+    p+='\nRules that travel: this is a standing area, not a one-off task. Keep a short log of what changed and why. Report back what was useful and what was noise. Never publish, post, send, buy, or change an app or account without my yes for that exact item.'+(repHow?' Report back like this: '+repHow+'.':'');
+  }
+  if(tier===4){
+    var when=((document.getElementById('scheduleWhen')||{}).value||'').trim();
+    p+='\nSchedule: run this '+(when||'on a regular clock')+', report only, and stay quiet on quiet days. The schedule does not remove my approval for anything public or irreversible.';
+  }
   return p;
 }
+function tryTierUp(){
+  if(currentTier>=4){document.getElementById('nudgeLine').textContent='That is Tier 4, the highest tier in this app. Tier 5 and 6 are in the note under the tiers, and taught in the paid edition.';return;}
+  var t=currentTier+1;selectTier(t);generate(document.getElementById('idea').value,t);
+}
+function gcEvent(name){try{if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:'/event/playbook/'+name,event:true});}}catch(e){}}
 function tierInfo(tier){
   return {
     1:{name:'Tier 1: Just ask',why:'This prompt is Tier 1 because it only has a goal. It has no limits, no check step, and no stop rule, so the agent can answer but cannot safely do a job.',lift:'To lift it to Tier 2, add limits, a check step, and a stop rule.'},
@@ -275,7 +386,7 @@ function copyText(t,okMsg,noteEl){
   if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fail);}
   else{var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){fail();}document.body.removeChild(ta);}
 }
-function copyResult(){copyText(document.getElementById('result').value,'Copied! Paste it into any AI chat.','copyNote');}
+function copyResult(){copyText(document.getElementById('result').value,'Copied! Paste it into any AI chat.','copyNote');gcEvent('copy');var b=document.getElementById('copyBtn');if(b){var old=b.textContent;b.textContent='Copied \u2713';setTimeout(function(){b.textContent=old;},1600);}}
 function updateCheckFromResult(){
   var s=checkFor(document.getElementById('result').value);
   document.getElementById('checkLine').textContent='Prompt check: '+s.parts.filter(function(p){return p[1];}).map(function(p){return p[0];}).join(', ')+' covered'+(s.missing.length?'. Not yet added: '+s.missing.join(', ')+'.':'')+'.';
@@ -312,12 +423,20 @@ function makeLonger(){
   document.getElementById('lengthNote').textContent='Longer: added Clarify and Success lines to make the prompt better.';
 }
 var my=[];try{my=JSON.parse(localStorage.getItem('pp-my')||'[]');if(!Array.isArray(my))my=[];}catch(e){my=[];}
-function renderMy(){document.getElementById('mylist').innerHTML=my.map(function(p,i){return '<li>'+p.replace(/</g,'&lt;')+' <button class="secondary" onclick="copySaved('+i+')">Copy</button> <button class="secondary" onclick="delMy('+i+')">Delete</button></li>';}).join('')||'<li class="note">No saved prompts yet. Make one above and tap Save this prompt.</li>';}
-function saveResult(){var t=document.getElementById('result').value;if(!t||my.indexOf(t)!==-1)return;my.unshift(t);localStorage.setItem('pp-my',JSON.stringify(my));renderMy();document.getElementById('saveNote').textContent='Saved! Scroll down to Your saved prompts to find it.';}
+var myDates=[];try{myDates=JSON.parse(localStorage.getItem('pp-my-dates')||'[]');if(!Array.isArray(myDates))myDates=[];}catch(e){myDates=[];}
+while(myDates.length<my.length)myDates.push('');
+function storeMy(){localStorage.setItem('pp-my',JSON.stringify(my));localStorage.setItem('pp-my-dates',JSON.stringify(myDates));}
+function savedTitle(p){var line=(p.split('\n')[0]||'Prompt').replace(/^Goal:\s*/,'');return line.length>70?line.slice(0,70)+'\u2026':line;}
+function renderMy(){
+  var q=((document.getElementById('savedSearch')||{}).value||'').trim().toLowerCase();
+  var items=my.map(function(p,i){return {p:p,i:i,d:myDates[i]||''};}).filter(function(x){return !q||x.p.toLowerCase().indexOf(q)!==-1;});
+  document.getElementById('mylist').innerHTML=items.map(function(x){return '<li><details class="saveditem"><summary><b>'+savedTitle(x.p).replace(/</g,'&lt;')+'</b>'+(x.d?' <span class="note">'+x.d+'</span>':'')+'</summary><pre class="savedbody">'+x.p.replace(/</g,'&lt;')+'</pre></details> <button class="secondary" onclick="copySaved('+x.i+')">Copy</button> <button class="secondary" onclick="delMy('+x.i+')">Delete</button></li>';}).join('')||'<li class="note">'+(q?'No saved prompts match that search.':'No saved prompts yet. Make one above and tap Save this prompt.')+'</li>';
+}
+function saveResult(){var t=document.getElementById('result').value;if(!t||my.indexOf(t)!==-1)return;my.unshift(t);myDates.unshift(new Date().toISOString().slice(0,10));storeMy();renderMy();gcEvent('save');document.getElementById('saveNote').textContent='Saved! Scroll down to Your saved prompts to find it.';}
 function copySaved(i){copyText(my[i],'Copied!','savedCopyNote');}
-function delMy(i){if(!confirm('Delete this saved prompt?'))return;my.splice(i,1);localStorage.setItem('pp-my',JSON.stringify(my));renderMy();}
-function exportMy(){var data={app:'prompt-playbook',version:1,exported:new Date().toISOString(),myPrompts:my};var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='prompt-playbook-my-prompts.json';a.click();URL.revokeObjectURL(a.href);}
-function importMy(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);var list=Array.isArray(d)?d:d.myPrompts;if(!Array.isArray(list))throw new Error('bad file');var added=0;list.forEach(function(p){if(typeof p==='string'&&p.trim()&&my.indexOf(p)===-1){my.push(p);added++;}});localStorage.setItem('pp-my',JSON.stringify(my));renderMy();alert('Imported '+added+' new prompt(s).');}catch(e){alert('That file could not be imported. It needs to be a Prompt Playbook export, a JSON list of prompts.');}ev.target.value='';};r.readAsText(f);}
+function delMy(i){if(!confirm('Delete this saved prompt?'))return;my.splice(i,1);myDates.splice(i,1);storeMy();renderMy();}
+function exportMy(){var data={app:'prompt-playbook',version:2,exported:new Date().toISOString(),myPrompts:my,dates:myDates};var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='prompt-playbook-my-prompts.json';a.click();URL.revokeObjectURL(a.href);}
+function importMy(ev){var f=ev.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){try{var d=JSON.parse(r.result);var list=Array.isArray(d)?d:d.myPrompts;if(!Array.isArray(list))throw new Error('bad file');var dates=(!Array.isArray(d)&&Array.isArray(d.dates))?d.dates:[];var added=0;list.forEach(function(p,idx){if(typeof p==='string'&&p.trim()&&my.indexOf(p)===-1){my.push(p);myDates.push(dates[idx]||'');added++;}});storeMy();renderMy();alert('Imported '+added+' new prompt(s).');}catch(e){alert('That file could not be imported. It needs to be a Prompt Playbook export, a JSON list of prompts.');}ev.target.value='';};r.readAsText(f);}
 document.getElementById('result').addEventListener('input',function(){
   baseFull=this.value;
   saveCurrent();
@@ -326,4 +445,5 @@ document.getElementById('result').addEventListener('input',function(){
 });
 renderMy();renderRecent();restoreCurrent();
 </script>
+<script data-goatcounter="https://georgestriderbuilds.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body></html>
