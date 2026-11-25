@@ -151,6 +151,44 @@ h1{font-size:40px}
 .ppx .coverimg{width:100%;max-width:340px;display:block;margin:6px auto 4px;border-radius:12px;border:1px solid var(--line)}
 .ppx #lockView{background:radial-gradient(ellipse 85% 36% at 50% -6%,rgba(53,181,134,.20),transparent 62%)}
 .ppx .bookglow{background:radial-gradient(ellipse 78% 62% at 50% 42%,rgba(53,181,134,.16),transparent 66%);border-radius:16px;padding:10px 0 2px}
+
+.bbx{--bg:#04070d; --surface:#0a1420; --ink:#e6fbff; --mute:#9fd8e2;
+  --line:#123a4a; --accent:#00f0ff; --accent2:#ff2e88; --ink-on:#02131a;}
+.bbx{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  padding:env(safe-area-inset-top,0) 0 env(safe-area-inset-bottom,0)}
+.bbx main{max-width:560px;margin:0 auto;padding:24px 16px 48px}
+.bbx h1{font-size:22px;letter-spacing:.06em;margin:0 0 4px;text-transform:uppercase}
+.bbx h1 .g{background:linear-gradient(135deg,var(--accent2),var(--accent));
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.bbx .sub{color:var(--mute);font-size:14px;margin:0 0 20px}
+.bbx section{margin:0 0 16px}
+.bbx label{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--mute);margin:0 0 6px}
+.bbx input[type=text],.bbx textarea{width:100%;background:var(--surface);color:var(--ink);
+  border:1px solid var(--line);border-radius:10px;
+  padding:12px;font:inherit;min-height:48px}
+.bbx textarea{min-height:88px;resize:vertical}
+.bbx input:focus,.bbx textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.bbx .decisions{display:grid;gap:8px}
+.bbx .out{background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:16px;white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:14px;line-height:1.6;min-height:120px;margin:0 0 12px}
+.bbx .out .dim{color:var(--mute)}
+.bbx button.copy{width:100%;min-height:52px;font:inherit;font-weight:700;font-size:16px;
+  color:var(--ink-on);background:linear-gradient(135deg,var(--accent2),var(--accent));
+  border:0;border-radius:12px;cursor:pointer}
+.bbx button.copy:active{transform:scale(.99)}
+.bbx button.example{width:100%;min-height:48px;font:inherit;font-size:15px;
+  color:var(--accent);background:transparent;border:1px solid var(--line);
+  border-radius:12px;cursor:pointer;margin:0 0 20px}
+.bbx button.example:active{transform:scale(.99)}
+.bbx #msg{font-size:13px;color:var(--mute);min-height:18px;margin-top:8px}
+.bbx footer{color:var(--mute);font-size:12px;text-align:center;margin-top:28px}
+.bbx footer a{color:var(--accent)}
+@media (min-width:1024px){.bbx main{max-width:720px;padding:32px 24px 64px}
+.bbx h1{font-size:26px}}
+@media (min-width:1440px){.bbx main{max-width:840px}}
 </style>
 <style>
 /* prevent text selection popup on mobile tap */
@@ -171,7 +209,7 @@ button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-vi
 <h1>Prompt Playbook</h1>
 <p class="sub" data-i18n-html="sub"><b>The free app.</b> Built from a working system that runs dozens of published apps, a daily content program, and a weekly review, with approval gates on anything public. You do not need to know anything about prompts. Agentic AI means the agent does a job for you, not just answers a question. You give it a goal, limits, a check, and a stop rule, and it works to those rules. This page teaches you the tiers, then builds a prompt you can try right away. This page only builds the prompt text. Paste it into an AI chat to use it, it does not run an agent or set a schedule by itself.</p>
 
-<div class="card" style="padding:10px 14px"><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#sec-tiers" style="color:#2fe6a8">The tiers</a> · <a href="#sec-build" style="color:#2fe6a8">Build a prompt</a> · <a href="#savedCard" style="color:#2fe6a8">Saved</a> · <a href="#sec-book" style="color:#2fe6a8">The book</a></div></div>
+<div class="card" style="padding:10px 14px"><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#sec-tiers" style="color:#2fe6a8">The tiers</a> · <a href="#sec-build" style="color:#2fe6a8">Build a prompt</a> · <a href="#savedCard" style="color:#2fe6a8">Saved</a> · <a href="#sec-book" style="color:#2fe6a8">The book</a> · <a href="#sec-contract" style="color:#2fe6a8">Contract</a> · <a href="#sec-templates" style="color:#2fe6a8">Templates</a> · <a href="#sec-briefbuilder" style="color:#2fe6a8">Brief Builder</a></div></div>
 <div class="card" id="sec-tiers"><h2 data-i18n="tiersH">1. The tiers, in plain words</h2>
 <p class="note" data-i18n="tiersNote">Higher is not always better. A higher tier gives the agent more freedom, so use it only when you trust the rules you gave it. For anything public, irreversible, or paid, stay at a lower tier with your own approval.</p>
 <div class="tiercard"><h3 data-i18n="t1h">Tier 1: Just ask</h3>
@@ -290,7 +328,7 @@ Stop: if a number does not add up, stop and say so.</pre>
 </div>
 
 <p class="note" data-i18n-html="footNote">How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What's missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.</p>
-<p class="note" data-i18n="versionLine">Prompt Playbook, the free app, v2026.11.6, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
+<p class="note" data-i18n="versionLine">Prompt Playbook, the free app, v2026.11.7, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
 
   <div class="card" id="sec-book"><h2>The Delegated Life: the book</h2><p class="note">The complete book, free, inside the app. Eight chapters. Your place is kept on this device. The book and the tools below are in English.</p><div class="ppx"><div id="bookIndex">
       <div class="bookglow"><img class="coverimg" src="cover.jpg" alt="The Delegated Life — cover"></div>
@@ -314,6 +352,79 @@ Stop: if a number does not add up, stop and say so.</pre>
           <button id="bookNext" style="min-height:44px">Next →</button>
         </div>
       </div></div></div></div>
+
+  <div class="card" id="sec-contract"><div class="ppx">
+    <h2 style="margin:6px 0 2px">Delegation Contract builder</h2>
+    <p class="hint" style="margin-top:0">Chapter 4, as a tool. One contract per area you hand over. Write it in your own words.</p>
+    <p style="margin:2px 0 10px"><button class="ghost small" data-chapter="4">Read Chapter 4 — Tier 3: Run an Area →</button></p>
+    <div class="card">
+      <details class="frombook"><summary>From the book — Chapter 4, on the mandate</summary><div class="bookbody excerpt" id="excerptContract"></div></details>
+      <label>Area name</label><input type="text" id="c_area" placeholder="e.g. Trail bike price watcher">
+      <label>Mandate — what this system is for, and what it is not for</label><textarea id="c_mandate" placeholder="One paragraph."></textarea>
+      <details id="c_more"><summary style="margin:12px 0 2px;cursor:pointer">Gates, never-lines, reporting &amp; stops — the full contract (starter never-lines are already inside)</summary>
+      <label>May do alone (one per line)</label><textarea id="c_alone" placeholder="Check the price twice a day&#10;Keep a log of the checks"></textarea>
+      <label>May do only with my approval (one per line)</label><textarea id="c_approval" placeholder="Anything beyond watching and logging — show me the exact listing first"></textarea>
+      <label>Never (one per line)</label><p class="hint" style="margin:2px 0 4px">Starter defaults are pre-filled below — edit or delete any line. They are a starting point, not a complete list: add the never-lines this area needs.</p><textarea id="c_never" placeholder="Never buy anything without my yes"></textarea>
+      <label>Reporting loop</label><textarea id="c_reporting" placeholder="A message when it finds it under $800. Otherwise, silence."></textarea>
+      <label>Weekly attention budget (optional)</label><input type="text" id="c_budget" placeholder="e.g. 30 minutes a week — leave blank if you don't want one"><p class="hint" style="margin:2px 0 8px">How much of your time this system may cost you each week — reports, approvals, fixes, all of it. Your number, in your words. Blank is fine.</p>
+      <label>Stop conditions</label><textarea id="c_stop" placeholder="If the shop site errors or blocks it, it pauses and tells me."></textarea>
+      </details>
+      <div class="checkline"><input type="checkbox" id="c_amtest"><span><b>The 3 a.m. test:</b> I have said the worst plausible outcome of this system out loud, and the contract above makes it impossible, not just unlikely.</span></div>
+      <div class="row"><button id="c_exampleBtn" class="ghost">Fill with an example</button><button id="c_previewBtn" class="ghost">Preview</button><button id="c_copyBtn" class="ghost">Copy contract</button><button id="c_saveBtn">Save to my playbook</button></div>
+      <p class="err" id="c_msg"></p>
+      <label>Contract preview</label><textarea class="out" id="c_out" readonly></textarea>
+    </div>
+  </div></div>
+  <div class="card" id="sec-templates"><div class="ppx">
+    <h2 style="margin:6px 0 2px">Template library</h2>
+    <p class="hint" style="margin-top:0">All eleven templates from the book, as fill-in forms. Fill, copy, save.</p>
+    <div class="card" style="border-color:var(--jade)"><h3>New here?</h3><p>Start with Template 1 — the Tier 2 Skeleton. It is the Pattern itself, and every other template is a variation on it.</p><div class="row"><button id="tplStartBtn">Start with Template 1 →</button></div></div>
+    <div id="tplList"></div>
+    <div id="tplForm" style="display:none"></div>
+  </div></div>
+  <div class="card" id="sec-briefbuilder"><h2>Brief Builder</h2><p class="note">The manual form: type the parts yourself, copy the brief. (This is the Brief Builder app, folded in.)</p><div class="bbx">
+  <h1><span class="g">Brief</span> Builder</h1>
+  <p class="sub">Brief an AI agent so it can run without you. Fill the fields, copy the brief, paste it to your agent.</p>
+  <button class="example" id="bbExBtn" type="button">See an example</button>
+
+  <section>
+    <label for="bbfGoal">Goal</label>
+    <input type="text" id="bbfGoal" placeholder="The one thing that must be true when it is done" autocomplete="off">
+  </section>
+  <section>
+    <label for="bbfConstraints">Constraints</label>
+    <textarea id="bbfConstraints" placeholder="Standing rules it must never break, one per line"></textarea>
+  </section>
+  <section>
+    <label for="bbfCheck">Check</label>
+    <textarea id="bbfCheck" placeholder="How you will verify it worked"></textarea>
+  </section>
+  <section>
+    <label for="bbfStop">Stop</label>
+    <textarea id="bbfStop" placeholder="Where it must not go, even if asked"></textarea>
+  </section>
+  <section>
+    <label>3 key decisions</label>
+    <div class="decisions">
+      <input type="text" id="bbfD1" placeholder="Decision 1" autocomplete="off" aria-label="Key decision 1">
+      <input type="text" id="bbfD2" placeholder="Decision 2" autocomplete="off" aria-label="Key decision 2">
+      <input type="text" id="bbfD3" placeholder="Decision 3" autocomplete="off" aria-label="Key decision 3">
+    </div>
+  </section>
+  <section>
+    <label for="bbfScope">Scope gate</label>
+    <input type="text" id="bbfScope" placeholder="e.g. within scope, or expands scope, needs a pick" autocomplete="off">
+  </section>
+
+  <section aria-label="Brief output">
+    <label>Your brief</label>
+    <div class="out" id="bbOut" aria-live="polite"><span class="dim">Start typing above. The brief builds itself here.</span></div>
+    <button class="copy" id="bbCopyBtn" type="button">Copy brief</button>
+    <p id="bbMsg" role="status"></p>
+  </section>
+
+  <footer>A Jade Static Builds collab, built with Muse. No signup, no upload.</footer>
+</div></div>
 </main>
 <script>
 var LANGS=['en','es','fr','de'];
@@ -364,7 +475,7 @@ deeperH:'Go deeper',
 deeperP:'This app is the whole system now, free: the complete book, The Delegated Life, the Contract builder, all eleven templates, fillable worksheets, and a 7-day plan to set up your own first delegated system. It is all below, on this page.',
 deeperNote:'The book and the tools below are in English for now. Everything above keeps its four languages.',
 footNote:'How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What\u2019s missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.',
-versionLine:'Prompt Playbook, the free app, v2026.11.6, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.'},
+versionLine:'Prompt Playbook, the free app, v2026.11.7, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.'},
 es:{title:'Prompt Playbook: la app gratuita | Jade Static Builds',
 sub:'<b>La app gratuita.</b> Creada a partir de un sistema real que gestiona decenas de apps publicadas, un programa diario de contenido y una revisión semanal, con puertas de aprobación para todo lo público. No necesitas saber nada de prompts. IA agéntica significa que el agente hace un trabajo por ti, no solo responde una pregunta. Le das un objetivo, límites, una verificación y una regla de parada, y trabaja con esas reglas. Esta página te enseña los niveles y luego crea un prompt que puedes probar enseguida. Esta página solo crea el texto del prompt. Pégalo en un chat de IA para usarlo; por sí sola no ejecuta ningún agente ni programa ningún horario.',
 tiersH:'1. Los niveles, en palabras simples',
@@ -411,7 +522,7 @@ deeperH:'Ir más profundo',
 deeperP:'Esta app ahora es el sistema completo, gratis: el libro completo, The Delegated Life, el creador de contratos, las once plantillas, las hojas de trabajo para completar y un plan de 7 días para montar tu primer sistema delegado. Todo está abajo, en esta página.',
 deeperNote:'El libro y las herramientas de abajo están en inglés por ahora. Todo lo de arriba mantiene sus cuatro idiomas.',
 footNote:'Cómo funciona, en una línea: un buen prompt dice qué quieres, cuáles son los límites, cómo verificarlo y qué nunca debe pasar. Nosotros añadimos esas partes por ti, para que no tengas que aprenderlas primero. ¿Qué falta? Cuéntanoslo en GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Aquí los prompts se usan de uno en uno, no encadenados.',
-versionLine:'Prompt Playbook, la app gratuita, v2026.11.6, actualizada el 8 de noviembre de 2026. Un proyecto de Jade Static Builds, construido con Muse.'},
+versionLine:'Prompt Playbook, la app gratuita, v2026.11.7, actualizada el 8 de noviembre de 2026. Un proyecto de Jade Static Builds, construido con Muse.'},
 fr:{title:'Prompt Playbook: l\u2019app gratuite | Jade Static Builds',
 sub:'<b>L\u2019app gratuite.</b> Construite à partir d\u2019un système réel qui fait tourner des dizaines d\u2019apps publiées, un programme de contenu quotidien et une revue hebdomadaire, avec des portes d\u2019approbation pour tout ce qui est public. Vous n\u2019avez pas besoin de savoir quoi que ce soit sur les prompts. L\u2019IA agentique signifie que l\u2019agent fait un travail pour vous, au lieu de simplement répondre à une question. Vous lui donnez un objectif, des limites, une vérification et une règle d\u2019arrêt, et il travaille selon ces règles. Cette page vous enseigne les niveaux, puis construit un prompt que vous pouvez essayer tout de suite. Cette page ne construit que le texte du prompt. Collez-le dans un chat IA pour l\u2019utiliser ; elle ne lance aucun agent et ne programme aucun horaire par elle-même.',
 tiersH:'1. Les niveaux, en mots simples',
@@ -458,7 +569,7 @@ deeperH:'Aller plus loin',
 deeperP:'Cette app est maintenant le système complet, gratuit : le livre entier, The Delegated Life, le créateur de contrats, les onze modèles, les feuilles de travail à remplir et un plan de 7 jours pour monter votre premier système délégué. Tout est ci-dessous, sur cette page.',
 deeperNote:'Le livre et les outils ci-dessous sont en anglais pour le moment. Tout ce qui est au-dessus garde ses quatre langues.',
 footNote:'Comment ça marche, en une ligne: un bon prompt dit ce que vous voulez, quelles sont les limites, comment le vérifier et ce qui ne doit jamais arriver. Nous ajoutons ces parties pour vous, pour que vous n\u2019ayez pas à les apprendre d\u2019abord. Que manque-t-il? Dites-le-nous sur GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Les prompts s\u2019utilisent un par un ici, jamais enchaînés.',
-versionLine:'Prompt Playbook, l\u2019app gratuite, v2026.11.6, mise à jour le 8 novembre 2026. Un projet Jade Static Builds, construit avec Muse.'},
+versionLine:'Prompt Playbook, l\u2019app gratuite, v2026.11.7, mise à jour le 8 novembre 2026. Un projet Jade Static Builds, construit avec Muse.'},
 de:{title:'Prompt Playbook: die kostenlose App | Jade Static Builds',
 sub:'<b>Die kostenlose App.</b> Gebaut aus einem echten System, das Dutzende veröffentlichter Apps, ein tägliches Content-Programm und eine wöchentliche Überprüfung betreibt, mit Freigabe-Toren für alles Öffentliche. Du musst nichts über Prompts wissen. Agentische KI bedeutet, dass der Agent einen Job für dich erledigt, statt nur eine Frage zu beantworten. Du gibst ihm ein Ziel, Grenzen, eine Prüfung und eine Stopp-Regel, und er arbeitet nach diesen Regeln. Diese Seite erklärt dir die Stufen und baut dann einen Prompt, den du sofort ausprobieren kannst. Diese Seite baut nur den Prompt-Text. Füge ihn in einen KI-Chat ein, um ihn zu nutzen; sie führt selbst keinen Agenten aus und setzt keinen Zeitplan.',
 tiersH:'1. Die Stufen, in einfachen Worten',
@@ -505,7 +616,7 @@ deeperH:'Tiefer gehen',
 deeperP:'Diese App ist jetzt das ganze System, kostenlos: das komplette Buch, The Delegated Life, der Vertrags-Builder, alle elf Vorlagen, ausfüllbare Arbeitsblätter und ein 7-Tage-Plan für dein erstes delegiertes System. Alles steht unten auf dieser Seite.',
 deeperNote:'Das Buch und die Werkzeuge unten sind vorerst auf Englisch. Alles darüber behält seine vier Sprachen.',
 footNote:'Wie es funktioniert, in einer Zeile: Ein guter Prompt sagt, was du willst, wo die Grenzen sind, wie man es prüft und was niemals passieren darf. Wir fügen diese Teile für dich hinzu, damit du sie nicht erst lernen musst. Was fehlt? Sag es uns auf GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts werden hier einzeln genutzt, nicht aneinandergehängt.',
-versionLine:'Prompt Playbook, die kostenlose App, v2026.11.6, aktualisiert am 8. November 2026. Ein Projekt von Jade Static Builds, gebaut mit Muse.'}
+versionLine:'Prompt Playbook, die kostenlose App, v2026.11.7, aktualisiert am 8. November 2026. Ein Projekt von Jade Static Builds, gebaut mit Muse.'}
 };
 function T(){return UI[curLang];}
 var GEN={
@@ -1036,15 +1147,37 @@ buildChips();renderMy();renderRecent();restoreCurrent();applyLang(curLang);
 /* ===== Merged workspace glue (Pro fold-in) ===== */
 const $=id=>document.getElementById(id);
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-let DB={bookChapter:0};
-try{const raw=localStorage.getItem("pp-ws-v1");if(raw){const p=JSON.parse(raw);if(p&&typeof p==="object")DB=Object.assign(DB,p);}}catch(e){}
-function saveDB(){try{localStorage.setItem("pp-ws-v1",JSON.stringify(DB));}catch(e){}}
-const PP_TOOLS_LIVE=false; // Stage A: chapter-end tool cards wait for Stage B targets
-const PP_SECTIONS={home:"sec-build",contract:"sec-contract",templates:"sec-templates",plan:"sec-plan",tools:"sec-tools",book:"sec-book"};
+const LS_KEY="pp-ws-v1";
+const STARTER_RULES = [
+"Verify before you say done.",
+"Show the exact thing, not a description of it.",
+"If it failed, say so plainly, once — no quiet retries.",
+"Private information stays home.",
+"Nothing is deleted on an old instruction.",
+"Any warning, removal, or restriction pauses the area until I say otherwise."
+];
+function blankDB(){return {contracts:[],rules:STARTER_RULES.slice(),asks:[],filled:[],plan:{},tracker:[],autopsies:[],checklist:{},bookChapter:null};}
+function loadDB(){try{const raw=localStorage.getItem(LS_KEY);if(raw){const d=JSON.parse(raw);const b=blankDB();for(const k in b)if(d[k]===undefined)d[k]=b[k];return d;}}catch(e){}return blankDB();}
+function saveDB(){try{localStorage.setItem(LS_KEY,JSON.stringify(DB));}catch(e){}}
+function lines(id){return $(id).value.split("\n").map(s=>s.trim()).filter(Boolean);}
+function download(name,text){const b=new Blob([text],{type:"text/markdown"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000);}
+function copyText(t,btn){const done=()=>{if(btn){const o=btn.textContent;btn.textContent="Copied ✓";setTimeout(()=>btn.textContent=o,1400);}};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(()=>fallbackCopy(t,done));}else fallbackCopy(t,done);}
+function fallbackCopy(t,done){const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);done();}
+let DB=loadDB();
+const PP_TOOLS_LIVE=true; // Stage B: chapter-end tool cards live
+const PP_SECTIONS={home:"sec-build",contract:"sec-contract",templates:"sec-templates",plan:"sec-plan",tools:"sec-tools",book:"sec-book",playbook:"sec-playbook"};
 function ppScroll(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth",block:"start"});}
 function go(view){ppScroll(PP_SECTIONS[view]||"sec-build");}
-function openTpl(){}
 function showTool(){}
+function renderHome(){if(document.getElementById("wsCheck")&&typeof renderWorkspaceCheck==="function")renderWorkspaceCheck();}
+function renderAll(){
+  if(document.getElementById("tplList")&&typeof renderTplList==="function")renderTplList();
+  if(document.getElementById("contractsList")&&typeof renderContracts==="function")renderContracts();
+  if(document.getElementById("rulesList")&&typeof renderRules==="function")renderRules();
+  if(document.getElementById("asksList")&&typeof renderAsks==="function")renderAsks();
+  renderHome();
+}
 </script>
 <script>
 
@@ -1201,5 +1334,400 @@ function wireBook() {
 wireBook();
 renderBookIndex();
 
+</script>
+
+<script>
+
+"use strict";
+/* ================= Template library — the book's 11, as forms ================= */
+const TEMPLATES=[
+{id:"t1",n:1,title:"The Tier 2 Skeleton",ch:"Chapter 3",fields:[
+ {k:"goal",label:"Goal — the outcome, one sentence",ph:"compare standing desks for a small room"},
+ {k:"limits",label:"Limits — your hard constraints",ph:"under $400, top no wider than 120cm"},
+ {k:"evidence",label:"Evidence standard",ph:"verified prices / reliable sources / only the numbers I give you"},
+ {k:"check",label:"Check — what you'll look at to know it's right",ph:"current prices with the shop named for each"},
+ {k:"verb",label:"Stop verb",ph:"buy / send / publish / book / guess"},
+ {k:"shape",label:"Output shape",ph:"shortlist, best first, under 200 words"}],
+ build:v=>`Goal: help me ${v.goal||"[the outcome]"}.\nLimits: ${v.limits||"[your hard constraints]"}. [Evidence standard: ${v.evidence||"verified prices / reliable sources"}].\nCheck: ${v.check||"[what you will look at]"}. Say what you could not verify.\nStop: do not ${v.verb||"buy / send / publish / book / guess"} without my yes.\nOutput: ${v.shape||"[shortlist / draft / summary / plan], [best first / in order], [length cap]"}.`},
+{id:"t2",n:2,title:"Tier 1 → Tier 2 Promotion Lines",ch:"Chapter 2",fields:[
+ {k:"which",label:"Which line is the ask missing?",type:"select",options:["Check: give me the source you found that on, and say if sources disagree.","Limits — list my hard constraints back to me first","Stop: draft it only — do not send, post, or book anything"]},
+ {k:"limits",label:"If Limits: your budget / size / dates / must-haves",ph:"under $300, before Friday, no layovers"}],
+ build:v=>{let out=v.which||"";if(out.indexOf("Limits")===0){out="Limits: "+(v.limits||"[your budget / size / dates / must-haves]")+". List my hard constraints back to me first.";}return "Add this line to the ask:\n\n"+out;}},
+{id:"t3",n:3,title:"Shopping With Hard Constraints",ch:"Chapter 3",fields:[
+ {k:"items",label:"Items to compare",ph:"trail bikes, 29-inch wheels"},
+ {k:"budget",label:"Budget ($)",ph:"800"},
+ {k:"constraints",label:"My hard constraints",ph:"size large, in stock, ships to me"},
+ {k:"mode",label:"Your tool can browse the live web?",type:"select",options:["Yes — it can browse","No — chat-only tool"]}],
+ build:v=>{const lim=v.mode&&v.mode.indexOf("No")===0?"Work only from the listings and details I paste in. Do not estimate prices or specs; list what you would need to verify instead.":"only use verified current prices. List my hard constraints back to me first, and never suggest a substitute that breaks one.";
+ return `Goal: help me compare ${v.items||"[items]"} under $${v.budget||"[budget]"}.\nLimits: ${lim} My hard constraints: ${v.constraints||"[size / specs / must-haves]"}.\nCheck: for each option, give the price, the total with tax and shipping where they apply, and where you found it. Say which details you could not verify.\nStop: do not buy, order, or book anything without my yes.\nOutput: a short shortlist, best pick first, with one line on why it wins.`;}},
+{id:"t4",n:4,title:"Research That Must Cite",ch:"Chapter 3",fields:[
+ {k:"q",label:"The research question",ph:"which neighborhoods in Lisbon are quiet and well-connected"},
+ {k:"mode",label:"Your tool can browse the live web?",type:"select",options:["Yes — it can browse","No — chat-only tool"]}],
+ build:v=>{const lim=v.mode&&v.mode.indexOf("No")===0?"Work only from the sources I paste in, and quote them. List what remains unverified instead of filling gaps from memory.":"use reliable sources, prefer recent ones, and separate verified facts from estimates and opinions.";
+ return `Goal: help me research ${v.q||"[question]"}.\nLimits: ${lim}\nCheck: cite the source behind each key claim, and flag where sources disagree.\nStop: do not invent facts or citations. If a source does not say it, do not claim it.\nOutput: a short summary, the key findings, and what is still uncertain.`;}},
+{id:"t5",n:5,title:"A Draft That Must Not Send Itself",ch:"Chapter 3",fields:[
+ {k:"msg",label:"The message",ph:"an email asking to renew my lease"},
+ {k:"to",label:"Recipient",ph:"my landlord"},
+ {k:"about",label:"About",ph:"the renewal terms and the leaking tap"}],
+ build:v=>`Goal: help me write ${v.msg||"[the message]"} to ${v.to||"[recipient]"} about ${v.about||"[topic]"}.\nLimits: keep it polite, clear, and short. Plain words, short sentences, one clear ask at the end.\nCheck: show me the finished draft, and flag any sentence that could be read the wrong way.\nStop: do not send or post it anywhere. Draft only, until I say send.\nOutput: one finished draft I can copy and paste.`},
+{id:"t6",n:6,title:"Money That Shows Its Math",ch:"Chapter 6",fields:[
+ {k:"job",label:"Budget / compare / plan",ph:"compare these two phone plans over 24 months"},
+ {k:"nums",label:"The numbers (paste them)",ph:"Plan A: $45/mo, $199 phone. Plan B: $60/mo, phone included.",multi:true}],
+ build:v=>`Goal: help me ${v.job||"[budget / compare / plan]"} from these numbers: ${v.nums||"[paste numbers]"}.\nLimits: only use the numbers I gave you. Keep it simple enough to follow.\nCheck: show the math, line by line, so I can check every total myself.\nStop: do not move money, pay a bill, invest, or change an account without my yes.\nOutput: a simple breakdown, with anything over budget flagged.`},
+{id:"t7",n:7,title:"The Delegation Contract",ch:"Chapter 4",fields:[],
+ build:()=>`This one has its own builder — open the Contract tab. It walks the mandate, the alone / approval / never lists, reporting, and stop conditions, with the 3 a.m. test built in.`},
+{id:"t8",n:8,title:"The Gate Matrix Starter",ch:"Chapter 6",fields:[
+ {k:"globalstop",label:"My global stop — the one instruction that halts everything",ph:"Say STOP ALL and every system pauses and reports"}],
+ build:v=>`MY GATE MATRIX\n\nRUNS ALONE: research, drafting, comparing, organizing, checking, preparing reports.\nNEEDS APPROVAL: publishing, sending, booking, spending, changing settings, deleting drafts. (Approvals are per-action and expire; yesterday's yes covers nothing today.)\nNEVER: spending without a gate, speaking as me to another person, sharing private information, deleting without a fresh confirmation, bypassing its own stop rules.\nGLOBAL STOP: ${v.globalstop||"[the one instruction that halts everything]"}`},
+{id:"t9",n:9,title:"Tier 4 Scheduled System Blueprint",ch:"Chapter 5",fields:[
+ {k:"name",label:"System name",ph:"Morning price watch"},
+ {k:"runs",label:"Runs — when, how often",ph:"weekdays at 7 a.m."},
+ {k:"job",label:"The job — one recurring check or draft, never a commitment",ph:"check the bike's price and log it"},
+ {k:"off",label:"Off-switch — the one word/instruction that pauses this job",ph:"Pause the price watch"}],
+ build:v=>`SCHEDULED SYSTEM — ${v.name||"[name]"}\nRuns: ${v.runs||"[when, how often]"}. Area contract: attach the Delegation Contract for this area.\nJob: ${v.job||"[the one recurring piece]"}.\nReport shape: (1) what needs me, (2) what changed, (3) nothing else. If nothing changed and nothing needs me: one line or silence.\nSilence rule: quiet days are reported as one line or not at all. Never invent output to fill a report.\nStop-on-flag: any error, warning, failed check, or rejected result pauses the system and is reported once, clearly. No quiet retries. Resuming is my decision.\nOff-switch: ${v.off||"[the one word/instruction that pauses this job]"}.`},
+{id:"t10",n:10,title:"The Ten Decision Prompts",ch:"Chapter 7",fields:[],
+ build:()=>`1. What does "done" look like — in one sentence?\n2. If this went wrong at 3 a.m., what's the worst plausible outcome?\n3. Which gate class is this: alone, approval, or never?\n4. What will I check — and could I actually check it?\n5. Am I approving the thing itself, or a description of it?\n6. Has it earned the next tier? (Three good runs, checks passing.)\n7. If this report landed while I was away for a week, would it calm me or worry me?\n8. Which part of the Pattern was missing?\n9. Is the fix a rule, or just a correction?\n10. Do I still know how to stop everything?`},
+{id:"t11",n:11,title:"The Rescue Prompt",ch:"Chapter 7",fields:[
+ {k:"line",label:"The line it crossed",ph:"you suggested a substitute that breaks my size constraint"},
+ {k:"constraints",label:"My hard constraints, restated",ph:"size large only; under $800; nothing bought without my yes",multi:true}],
+ build:v=>`Stop. Do not continue the task yet.\nYou crossed this line from my brief: ${v.line||"[name the line]"}.\nMy hard constraints, restated: ${v.constraints||"[list them]"}.\nConfirm back to me: (1) the line you crossed, (2) my constraints as you now understand them, (3) what you will do differently.\nDo not resume until I say continue. If this happens a second time in this session, we stop and I run a prompt autopsy instead.`}
+];
+const TPL_PURPOSE={
+t1:"Turn a loose ask into a complete one-shot brief: goal, limits, check, stop, output.",
+t2:"Upgrade a quick ask into a briefed task by adding the one line it is missing.",
+t3:"Compare purchases under hard constraints with verified prices — and never buy without my yes.",
+t4:"Research a question with cited sources and honest uncertainty.",
+t5:"Write a message that only ever drafts — it never sends itself.",
+t6:"Budget, compare, or plan from my numbers, with the math shown line by line.",
+t7:"Define a whole area I hand to an agent: mandate, gates, never-lines, reporting, stop conditions.",
+t8:"Write down which actions an agent may do alone, which need my approval, and which are never allowed.",
+t9:"Put a recurring job on a clock, with a report shape, a silence rule, and stop-on-flag.",
+t10:"Ten questions to run before delegating anything, or promoting it a tier.",
+t11:"Stop an agent mid-flight when it crosses a line, and reset it on my constraints."
+};
+function agentHelpText(t){
+  const v={}; let filled=[];
+  t.fields.forEach(fd=>{const el=document.getElementById("tf_"+fd.k); const val=el?el.value.trim():""; v[fd.k]=val; if(val)filled.push("- "+fd.label+": "+val);});
+  let s="You are my AI assistant. I am using Prompt Playbook Pro — the workspace app from the book The Delegated Life — and I want your help with one of its templates: \""+t.title+"\" ("+t.ch+").\nWhat this template is for: "+(TPL_PURPOSE[t.id]||"")+"\n";
+  if(filled.length)s+="\nHere is what I have filled in so far:\n"+filled.join("\n")+"\n";
+  const out=document.getElementById("tf_out"); if(out&&out.value.trim())s+="\nHere is the brief the app built from that:\n```\n"+out.value.trim()+"\n```\n";
+  if(DB.rules&&DB.rules.length)s+="\nMy standing rules, from my playbook: "+DB.rules.join(" ")+"\n";
+  const nevers=[]; (DB.contracts||[]).forEach(c=>(c.never||[]).forEach(n=>nevers.push(n)));
+  if(nevers.length)s+="My never-lines, from my contracts: "+nevers.join(" · ")+"\n";
+  s+="\nPlease do the following:\n1. Explain in plain words what this template is for and when to use it.\n2. Interview me ONE question at a time about my real situation — wait for each answer before asking the next.\n3. Fill the template in with me as we go, and at the end produce the finished, ready-to-paste result.\n4. Respect the book's governance throughout: never send, spend, publish, book, or change anything without my explicit approval of the exact finished thing — one approval covers one action. Treat my never-lines as absolute: quote them back to me verbatim before we start.\n\nStart with step 1, then ask your first question.";
+  return s;
+}
+
+/* ================= Quick brief (E1) — the free app's loop, at Pro depth ================= */
+const QB_GEN={"labels": {"goal": "Goal", "limits": "Limits", "check": "Check", "stop": "Stop", "output": "Output"}, "goalOnly": "Goal: help me {idea}.", "checks": {"social": "Show me the exact finished post first, so I can approve it before anything is posted.", "app": "Show me how it works before you call it done, test it on a small phone screen, confirm you are publishing the latest version you tested, and check the live links and counts before calling it done.", "cooking": "List the ingredients you are using from what I have, before the steps, so I can spot anything missing.", "recurring": "Report only what actually changed since last time, and say plainly when nothing changed.", "writing": "Show me the finished draft, and flag any sentence that could be read the wrong way.", "planning": "Check the plan against real times, prices, and opening hours where they matter, and flag anything unverified.", "study": "Check your explanation by giving me 3 practice questions, with answers, at the end.", "shopping": "For each option, give the price and where you found it, and say which details you could not verify.", "research": "Cite the source behind each key claim, and flag where sources disagree.", "money": "Show the math, line by line, so I can check every total myself.", "general": "Check your answer against the facts you used, and say what is still uncertain."}, "stops": {"social": "Do not post, send, or publish anything without my yes for that exact post.", "app": "Do not post, send, buy, or book anything without my yes.", "cooking": "Do not invent ingredients I do not have, and do not add steps I did not ask for.", "recurring": "Do not post, send, buy, or book anything without my yes, and do not invent work on quiet days.", "writing": "Do not send or post it anywhere. Draft only, until I say send.", "planning": "Do not book, buy, or reserve anything without my yes.", "study": "Do not guess or invent facts. If you do not know, say so.", "shopping": "Do not buy, order, or book anything without my yes.", "research": "Do not invent facts or citations. If a source does not say it, do not claim it.", "money": "Do not move money, pay a bill, invest, or change an account without my yes.", "general": "Do not guess or invent facts, and do not post, send, buy, or book anything without my yes."}, "bases": {"social": {"limits": "keep it clear, short, and in a normal human voice. No filler words, no hype, and be decisive, not unsure.", "output": "one finished post I can copy and paste, nothing else to fix."}, "app": {"limits": "keep it simple, work on a phone, no signup, no extra features I did not ask for, and keep the first version private until I approve it public.", "output": "a working version I can try right away, plus one line on what to test first."}, "cooking": {"limits": "use only what I actually have, unless I say to suggest shopping. Keep it simple and practical.", "output": "a simple recipe in order, with what to use and how long each step takes."}, "recurring": {"limits": "keep it short, only tell me when something actually changed, and stay quiet on quiet days.", "output": "a short report I can read in under a minute."}, "writing": {"limits": "keep it polite, clear, and short. Use plain words, short sentences, and one clear ask at the end.", "output": "one finished draft I can copy and paste."}, "planning": {"limits": "keep it realistic for time, money, and who is involved. No impossible schedules.", "output": "a simple step-by-step plan, in order, with what to do first."}, "study": {"limits": "explain it in plain words first, then add detail only where I need it. Use examples, not jargon.", "output": "a short explanation, then 3 practice questions with answers."}, "shopping": {"limits": "only use verified current prices and specs. List my hard constraints back to me first, and never suggest a substitute that breaks one.", "output": "a short shortlist, best pick first, with one line on why it wins."}, "research": {"limits": "use reliable sources, prefer recent ones, and separate verified facts from estimates and opinions.", "output": "a short summary, the key findings, and what is still uncertain."}, "money": {"limits": "only use the numbers I gave you. Never move money or change an account. Keep it simple enough to follow weekly.", "output": "a simple breakdown I can follow, with anything over budget flagged."}, "general": {"limits": "keep it clear and practical, and only use information that fits what I asked for.", "output": "a clear answer I can act on, in simple steps."}}, "schedT": "Schedule: run this {when}, report only, and stay quiet on quiet days. The schedule does not remove my approval for anything public or irreversible.", "schedFallback": "on a regular clock", "rulesText": "Rules that travel: this is a standing area, not a one-off task. Keep a short log of what changed and why. Report back what was useful and what was noise. Never publish, post, send, buy, or change an app or account without my yes for that exact item."};
+function qbCategory(idea){
+  const s=idea.toLowerCase();
+  if(/\binstagram\b|\bthreads\b|\bsocial media\b|\bcaption\b|\breel\b|\bpost\b/.test(s))return "social";
+  if(/\bresearch\b|\binvestigate\b|\bfind out\b|\bpros and cons\b/.test(s))return "research";
+  if(/\bcompare\b|\bbuy\b|\bshopping\b|\bshop for\b|\bprice\b|\bdeal\b|\bjacket\b|\bshoes\b|\bphones?\b|\bunder \$/.test(s))return "shopping";
+  if(/\bbudget\b|\bmoney\b|\bexpenses?\b|\bspending\b|\bsalary\b|\bnegotiat\w*\b|\bdebt\b|\bsavings?\b|\bbills?\b/.test(s))return "money";
+  if(/\bapp\b|\bwebsite\b|\bbuild a tool\b|\bprogram\b|\bcode\b/.test(s))return "app";
+  if(/\bevery day\b|\bdaily\b|\bweekly\b|\bremind\w*\b|\broutine\b|\bhabit\b|check.*\bevery\b/.test(s))return "recurring";
+  if(/\bemail\b|\bletter\b|\bmessage\b|\bresume\b|\bcover letter\b|\bwrite\b/.test(s))return "writing";
+  if(/\bplan\b|\btrip\b|\bparty\b|\bbirthday\b|\bvacation\b|\bitinerary\b|\bwedding\b|\bbook\b|\bflight\b|\bhotel\b/.test(s))return "planning";
+  if(/\bcook\w*\b|\brecipe\b|\bfridge\b|\bmeal\b|\bdinner\b|\bbake\b|\bingredients?\b/.test(s))return "cooking";
+  if(/\bstudy\b|\bexam\b|\btest\b|\bhomework\b|\blearn\b/.test(s))return "study";
+  return "general";
+}
+function qbBuild(idea,tier){
+  const g=QB_GEN,L=g.labels,cat=qbCategory(idea);
+  const check=g.checks[cat]||g.checks.general, stop=g.stops[cat]||g.stops.general;
+  if(tier===1)return g.goalOnly.replace("{idea}",idea);
+  const b=g.bases[cat]||g.bases.general;
+  let out=g.goalOnly.replace("{idea}",idea)+"\n"+L.limits+": "+b.limits+"\n"+L.check+": "+check+"\n"+L.stop+": "+stop+"\n"+L.output+": "+b.output;
+  if(tier>=3)out+="\n"+g.rulesText;
+  if(tier===4)out+="\n"+g.schedT.replace("{when}",g.schedFallback);
+  return out;
+}
+const QB_TIER={};
+function qbCardHTML(pre){
+  return '<div class="card qbcard" style="border-color:var(--jade)"><h3>Quick brief</h3><p class="hint" style="margin-top:0">The free app\'s three taps, at Pro depth. One line in — a governed brief out.</p>'+
+  '<label>What do you want to hand off?</label><input type="text" id="'+pre+'_idea" placeholder="For example: plan a trip to Miami, write a work email, compare two phones, make a weekly budget">'+
+  '<div class="row" id="'+pre+'_tiers"><button class="ghost small" data-qbt="1">Tier 1 · Just ask</button><button class="ghost small" data-qbt="2">Tier 2 · Do a task</button><button class="ghost small" data-qbt="3">Tier 3 · Run an area</button><button class="ghost small" data-qbt="4">Tier 4 · On a clock</button></div>'+
+  '<div id="'+pre+'_outWrap"><label>Your brief — appears as you type, copy it into any AI tool</label><textarea class="out" id="'+pre+'_out" readonly placeholder="Start typing above. Your brief builds itself here."></textarea>'+
+  '<div class="row"><button id="'+pre+'_copy">Copy brief</button><button class="ghost small" id="'+pre+'_contract">Turn this into a contract →</button></div></div></div>';
+}
+function qbRender(pre){
+  const idea=$(pre+"_idea").value.trim();
+  $(pre+"_out").value=idea?qbBuild(idea,QB_TIER[pre]):"";
+}
+function wireQuickBrief(pre){
+  QB_TIER[pre]=2;
+  const box=$(pre+"_tiers");
+  box.querySelectorAll("[data-qbt]").forEach(b=>b.addEventListener("click",()=>{QB_TIER[pre]=parseInt(b.dataset.qbt,10);box.querySelectorAll("[data-qbt]").forEach(x=>x.classList.toggle("on",x===b));qbRender(pre);}));
+  $(pre+"_idea").addEventListener("input",()=>qbRender(pre));
+  $(pre+"_copy").addEventListener("click",e=>copyText($(pre+"_out").value,e.target));
+  $(pre+"_contract").addEventListener("click",()=>{
+    const idea=$(pre+"_idea").value.trim();
+    startContractFromAsk({ask:idea,gate:"my approval of the exact finished thing"});
+    $("c_mandate").value=$(pre+"_out").value;
+    const d=$("c_more");if(d)d.open=true;
+  });
+}
+function setupQuickBriefs(){
+  if($("qbHome")){$("qbHome").innerHTML=qbCardHTML("qbh");wireQuickBrief("qbh");}
+  if($("qbBook")){$("qbBook").innerHTML=qbCardHTML("qbb");wireQuickBrief("qbb");}
+}
+/* ================= Template examples (E2) ================= */
+const TPL_EXAMPLES={
+t1:{goal:"compare standing desks for a small room",limits:"under $400, top no wider than 120cm",evidence:"verified prices only, from the shop pages themselves",check:"the current price and the shop named for each desk, plus delivery cost",verb:"buy",shape:"shortlist, best first, under 200 words"},
+t2:{which:"Limits — list my hard constraints back to me first",limits:"under $300, before Friday, no layovers"},
+t3:{items:"trail bikes, 29-inch wheels",budget:"800",constraints:"size large, in stock this week, ships to me",mode:"Yes — it can browse"},
+t4:{q:"which neighborhoods in Lisbon are quiet and well-connected",mode:"Yes — it can browse"},
+t5:{msg:"an email asking to renew my lease",to:"my landlord",about:"renewing for 12 months at the same rent, and fixing the leaking tap in the bathroom"},
+t6:{job:"compare these two phone plans over 24 months",nums:"Plan A: $45/mo, phone $199 up front. Plan B: $60/mo, phone included."},
+t8:{globalstop:"Say STOP ALL and every system pauses and reports back"},
+t9:{name:"Morning price watch",runs:"weekdays at 7 a.m.",job:"check the trail bike's price at the two shops I named and log it",off:"Pause the price watch"},
+t11:{line:"you suggested a substitute that breaks my size constraint",constraints:"size large only; under $800; nothing bought without my yes"}
+};
+
+let currentTpl=null;
+const TPL_GROUPS=[
+ {title:"Start here — the core moves",ids:["t1","t2"]},
+ {title:"Everyday tasks",ids:["t3","t4","t5","t6"]},
+ {title:"Running systems",ids:["t7","t8","t9"]},
+ {title:"Decisions & rescue",ids:["t10","t11"]}
+];
+function renderTplList(){
+  $("tplList").style.display="block";$("tplForm").style.display="none";
+  $("tplList").innerHTML=TPL_GROUPS.map(g=>'<p class="kicker" style="margin:18px 0 4px">'+esc(g.title)+'</p>'+g.ids.map(id=>{const t=TEMPLATES.find(x=>x.id===id);return '<div class="listitem"><b>'+t.n+". "+esc(t.title)+'</b> <span class="meta">· '+esc(t.ch)+'</span><br><button class="small" style="margin-top:7px" data-tpl="'+t.id+'">Open form</button></div>';}).join("")).join("");
+  $("tplList").querySelectorAll("[data-tpl]").forEach(b=>b.addEventListener("click",()=>openTpl(b.dataset.tpl)));
+}
+function openTpl(id){
+  const t=TEMPLATES.find(x=>x.id===id);if(!t)return;currentTpl=t;
+  $("tplList").style.display="none";const f=$("tplForm");f.style.display="block";
+  let h='<div class="card"><div style="display:flex;align-items:center;gap:10px"><button class="ghost" id="tf_backArrow" aria-label="Back to all templates" style="min-width:44px;min-height:44px;padding:6px 10px;font-size:19px;line-height:1">←</button><h3 style="margin:0">'+t.n+". "+esc(t.title)+'</h3></div><p class="hint">'+esc(t.ch)+" · The Delegated Life</p>";
+  t.fields.forEach(fd=>{
+    h+='<label>'+esc(fd.label)+'</label>';
+    if(fd.type==="select"){h+='<select id="tf_'+fd.k+'">'+fd.options.map(o=>'<option>'+esc(o)+'</option>').join("")+'</select>';}
+    else if(fd.multi){h+='<textarea id="tf_'+fd.k+'" placeholder="'+esc(fd.ph||"")+'"></textarea>';}
+    else{h+='<input type="text" id="tf_'+fd.k+'" placeholder="'+esc(fd.ph||"")+'">';}
+  });
+  h+='<div class="row"><button id="tf_build">Build it</button>'+(TPL_EXAMPLES[t.id]?'<button class="ghost" id="tf_example">Fill with an example</button>':'')+'<button class="ghost" id="tf_back">All templates</button><button class="ghost" id="tf_chapter">Read the chapter →</button></div>'+
+     '<label>Your brief — copy it into any AI tool</label><textarea class="out" id="tf_out" readonly></textarea>'+
+     '<div class="row"><button class="ghost small" id="tf_copy">Copy</button><button class="ghost small" id="tf_save">Save filled copy</button><button class="small" id="tf_agent">Have your agent help</button></div><p class="hint">“Have your agent help” copies a ready-to-paste prompt for your own AI chat: it explains this template, interviews you one question at a time, and fills it in with you — under the book’s governance.</p><p class="err" id="tf_msg"></p></div>';
+  f.innerHTML=h;
+  $("tf_back").addEventListener("click",renderTplList);
+  $("tf_chapter").addEventListener("click",()=>{const m=/Chapter (\d+)/.exec(t.ch);go("book");renderChapter(m?parseInt(m[1],10)-1:0);});
+  $("tf_backArrow").addEventListener("click",renderTplList);
+  $("tf_agent").addEventListener("click",e=>{copyText(agentHelpText(t),e.target);});
+  if(TPL_EXAMPLES[t.id]&&$("tf_example")){$("tf_example").addEventListener("click",()=>{const ex=TPL_EXAMPLES[t.id];t.fields.forEach(fd=>{if(ex[fd.k]!==undefined)$("tf_"+fd.k).value=ex[fd.k];});$("tf_msg").textContent="Example filled in — edit it into yours, then Build it.";});}
+  $("tf_build").addEventListener("click",()=>{const v={};t.fields.forEach(fd=>v[fd.k]=$( "tf_"+fd.k).value);$("tf_out").value=t.build(v);$("tf_msg").textContent="";});
+  $("tf_copy").addEventListener("click",e=>{if(!$("tf_out").value)$("tf_build").click();copyText($("tf_out").value,e.target);});
+  $("tf_save").addEventListener("click",()=>{if(!$("tf_out").value)$("tf_build").click();DB.filled.push({title:t.title,text:$("tf_out").value,at:Date.now()});saveDB();$("tf_msg").textContent="Saved to this device (filled copies live in your exported playbook data).";renderHome();});
+  ppScroll("sec-templates");
+}
+
+</script>
+<script>
+
+"use strict";
+/* ================= Contract builder (Template 7) ================= */
+const DEFAULT_NEVER=[
+"Never spend money or commit to a payment without my approval of the exact amount.",
+"Never send, post, or publish anything in my name without my approval of the exact finished thing.",
+"Never delete or materially change important files or data — deletions get a fresh, exact list from me.",
+"Never promise a date, deadline, or commitment on my behalf.",
+"Never share private or sensitive information outside the task."
+];
+function prefillNeverDefaults(){if(!$("c_never").value.trim()){$("c_never").value=DEFAULT_NEVER.join("\n");}}
+function startContractFromAsk(o){
+  $("c_area").value=o.ask;
+  $("c_mandate").value="Look after this area: "+o.ask+". Gate for anything real: "+o.gate+". (Starter text from your interview — rewrite it in your own words.)";
+  prefillNeverDefaults();
+  const dm=$("c_more");if(dm)dm.open=true;
+  go("contract");
+}
+function contractText(o){
+  const li=a=>a.length?a.map(x=>"- "+x).join("\n"):"- [ ]";
+  return "THE DELEGATION CONTRACT — "+(o.area||"[Area name]")+"\n\nMandate: "+(o.mandate||"[What this system is for, and what it is not for.]")+
+  "\n\nMay do alone:\n"+li(o.alone)+"\n\nMay do only with my approval:\n"+li(o.approval)+
+  "\n  Approval means: I see the exact finished thing — text, image, price, recipient — before it goes anywhere. One approval covers exactly one action."+
+  "\n\nNever:\n"+li(o.never)+"\n\nReporting loop:\n- "+(o.reporting||"[When it reports, and in what shape]")+
+  "\n\nStop conditions:\n- "+(o.stop||"[What pauses the whole area immediately]")+(o.budget?"\n\nAttention budget:\n- This system may cost me up to "+o.budget+" of my time per week — reports, approvals, and fixes included. If it needs more, it pauses and asks.":"");
+}
+function readContractForm(){return {area:$("c_area").value.trim(),mandate:$("c_mandate").value.trim(),alone:lines("c_alone"),approval:lines("c_approval"),never:lines("c_never"),reporting:$("c_reporting").value.trim(),stop:$("c_stop").value.trim(),budget:$("c_budget").value.trim()};}
+function wireContract(){
+  prefillNeverDefaults();
+  $("c_exampleBtn").addEventListener("click",()=>{
+    $("c_area").value="Trail bike price watcher";
+    $("c_mandate").value="Watch the two shops I named for the trail bike in size large, log the price each morning, and tell me the moment it drops under $800 ready to buy. Watching and logging only — this system never buys.";
+    $("c_alone").value="Check both shops once a day\nLog the price, stock, and date";
+    $("c_approval").value="Alert me with the exact listing when it drops under $800";
+    $("c_never").value=[DEFAULT_NEVER[0],DEFAULT_NEVER[1],"Never suggest a substitute bike that breaks my size or budget limits."].join("\n");
+    $("c_reporting").value="One message when it drops under $800, with the shop and the total price. Otherwise, silence.";
+    $("c_budget").value="15 minutes";
+    $("c_stop").value="If a shop blocks the check, or the price looks wrong twice in a row, pause and tell me.";
+    $("c_msg").textContent="Example filled in — edit it into yours. The 3 a.m. test stays yours to check.";
+  });
+  $("c_previewBtn").addEventListener("click",()=>{$("c_out").value=contractText(readContractForm());$("c_msg").textContent="";});
+  $("c_copyBtn").addEventListener("click",e=>{if(!$("c_out").value)$("c_out").value=contractText(readContractForm());copyText($("c_out").value,e.target);});
+  $("c_saveBtn").addEventListener("click",()=>{
+    const o=readContractForm();const msg=$("c_msg");
+    if(!o.area){msg.textContent="Give the area a name first.";return;}
+    if(!$("c_amtest").checked){msg.textContent="The 3 a.m. test first: say the worst plausible outcome out loud, then check the box.";return;}
+    o.text=contractText(o);o.at=Date.now();DB.contracts.push(o);saveDB();msg.textContent="";$("c_out").value=o.text;
+    renderContracts();renderHome();alert("Contract saved to your playbook.");go("playbook");
+  });
+}
+/* ================= Playbook renders ================= */
+function renderContracts(){
+  const el=$("pbContracts");
+  if(!DB.contracts.length){el.innerHTML='<p class="hint">No contracts yet. Build your first in the Contract tab — one per area you hand over.</p>';return;}
+  el.innerHTML=DB.contracts.map((c,i)=>'<div class="listitem"><b>'+esc(c.area)+'</b><div class="meta">'+esc(c.mandate.slice(0,120))+(c.mandate.length>120?"…":"")+'</div><div class="row"><button class="ghost small" data-ccopy="'+i+'">Copy full contract</button><button class="ghost small" data-cdel="'+i+'">Delete</button></div></div>').join("");
+  el.querySelectorAll("[data-ccopy]").forEach(b=>b.addEventListener("click",e=>copyText(DB.contracts[+b.dataset.ccopy].text,e.target)));
+  el.querySelectorAll("[data-cdel]").forEach(b=>b.addEventListener("click",()=>{if(confirm("Delete this contract? This cannot be undone.")){DB.contracts.splice(+b.dataset.cdel,1);saveDB();renderContracts();renderHome();}}));
+}
+function renderRules(){
+  const el=$("pbRules");
+  el.innerHTML=DB.rules.map((r,i)=>'<div class="checkline"><span style="flex:1">'+esc(r)+'</span><button class="ghost small" data-rdel="'+i+'">✕</button></div>').join("")||'<p class="hint">No rules yet.</p>';
+  el.querySelectorAll("[data-rdel]").forEach(b=>b.addEventListener("click",()=>{DB.rules.splice(+b.dataset.rdel,1);saveDB();renderRules();renderHome();}));
+}
+function renderAsks(){
+  const el=$("pbAsks");
+  if(!DB.asks.length){el.innerHTML='<p class="hint">No asks sorted yet.</p>';return;}
+  el.innerHTML='<table><tr><th>Ask</th><th>Tier</th><th>Gate</th><th>Missing line</th><th></th></tr>'+
+   DB.asks.map((a,i)=>'<tr><td>'+esc(a.ask)+'</td><td>'+a.tier+'</td><td>'+esc(a.gate)+'</td><td>'+esc(a.missing)+'</td><td><button class="ghost small" data-adel="'+i+'">✕</button></td></tr>').join("")+"</table>";
+  el.querySelectorAll("[data-adel]").forEach(b=>b.addEventListener("click",()=>{DB.asks.splice(+b.dataset.adel,1);saveDB();renderAsks();renderHome();}));
+}
+function suggestTier(){
+  const k=$("i_kind").value;const map={quick:1,research:2,draft:2,transact:2,watch:3};
+  const names={quick:"a quick ask — cheap to be wrong, answer in front of you",research:"a briefed task — it deserves the full Pattern",draft:"a briefed task — drafting is safe, sending is the gate",transact:"a briefed task with a hard approval gate — the action itself is the risk",watch:"an area — recurring work belongs under a contract (Tier 3); on a clock it picks up Tier 4 rules"};
+  $("i_suggest").textContent="Book's suggestion: Tier "+map[k]+" — "+names[k]+".";
+  return map[k];
+}
+function wirePlaybook(){
+  $("ruleAddBtn").addEventListener("click",()=>{const v=$("ruleInput").value.trim();if(!v)return;DB.rules.push(v);$("ruleInput").value="";saveDB();renderRules();renderHome();});
+  $("i_kind").addEventListener("change",suggestTier);suggestTier();
+  $("i_exampleBtn").addEventListener("click",()=>{$("i_ask").value="Keep an eye on my inbox for anything from my landlord";$("i_kind").value="watch";$("i_gate").selectedIndex=0;$("i_missing").selectedIndex=0;$("i_msg").textContent="Example filled in — edit it into yours.";});
+  $("i_addBtn").addEventListener("click",()=>{
+    const ask=$("i_ask").value.trim();const msg=$("i_msg");
+    if(!ask){msg.textContent="Name the ask first.";return;}
+    const askObj={ask:ask,tier:suggestTier(),gate:$("i_gate").value,missing:$("i_missing").value};
+    DB.asks.push(askObj);saveDB();$("i_ask").value="";msg.textContent="";
+    renderAsks();renderHome();
+    $("i_next").innerHTML='<div class="card" style="border-color:var(--jade)"><h3>Ask saved. Now gate it.</h3><p>Turn this ask into your first Delegation Contract — the same ask, with a mandate, approval gates, and never-lines around it. The builder starts with your ask and the starter never-lines already in place.</p><div class="row"><button id="i_contractBtn">Build my first contract →</button></div></div>';
+    $("i_contractBtn").addEventListener("click",()=>startContractFromAsk(askObj));
+  });
+  $("exportJsonBtn").addEventListener("click",()=>download("my-playbook-data.json",JSON.stringify(DB,null,2)));
+  $("importJsonBtn").addEventListener("click",()=>$("importFile").click());
+  $("importFile").addEventListener("change",e=>{
+    const f=e.target.files[0];if(!f)return;const r=new FileReader();
+    r.onload=()=>{try{const d=JSON.parse(r.result);const b=blankDB();for(const k in b)DB[k]=d[k]!==undefined?d[k]:b[k];saveDB();renderAll();$("dataMsg").textContent="Imported. Your playbook is restored.";}catch(err){$("dataMsg").textContent="That file didn't parse as playbook data.";}};
+    r.readAsText(f);
+  });
+}
+
+</script>
+<script>
+
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var fields = ["bbfGoal","bbfConstraints","bbfCheck","bbfStop","bbfD1","bbfD2","bbfD3","bbfScope"];
+  var out = $("bbOut"), msg = $("bbMsg");
+
+  function val(id){ return $(id).value.trim(); }
+
+  function buildBrief(){
+    var parts = [];
+    var goal = val("bbfGoal");
+    var cons = val("bbfConstraints");
+    var check = val("bbfCheck");
+    var stop = val("bbfStop");
+    var d1 = val("bbfD1"), d2 = val("bbfD2"), d3 = val("bbfD3");
+    var scope = val("bbfScope");
+    if(goal) parts.push("GOAL: " + goal);
+    if(cons) parts.push("CONSTRAINTS:\n" + cons);
+    if(check) parts.push("CHECK: " + check);
+    if(stop) parts.push("STOP: " + stop);
+    var ds = [d1,d2,d3].filter(function(d){ return d.length > 0; });
+    if(ds.length){
+      parts.push("3 DECISIONS:\n" + ds.map(function(d,i){ return (i+1) + ". " + d; }).join("\n"));
+    }
+    if(scope) parts.push("SCOPE GATE: " + scope);
+    return parts.join("\n\n");
+  }
+
+  function render(){
+    var brief = buildBrief();
+    if(brief){
+      out.textContent = brief;
+    }else{
+      out.innerHTML = '<span class="dim">Start typing above. The brief builds itself here.</span>';
+    }
+  }
+
+  fields.forEach(function(id){
+    $(id).addEventListener("input", render);
+  });
+
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text).then(function(){ return true; }, function(){ return fallbackCopy(text); });
+    }
+    return Promise.resolve(fallbackCopy(text));
+  }
+
+  function fallbackCopy(text){
+    try{
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      return ok;
+    }catch(e){
+      return false;
+    }
+  }
+
+  $("bbCopyBtn").addEventListener("click", function(){
+    var brief = buildBrief();
+    if(!brief){
+      msg.textContent = "Fill in at least one field first.";
+      return;
+    }
+    copyText(brief).then(function(ok){
+      msg.textContent = ok ? "Brief copied. Paste it to your agent." : "Copy did not work here. Select the brief above and copy it by hand.";
+    });
+  });
+
+  var EXAMPLE = {
+    bbfGoal: "Dinner for 6 guests on Saturday night, on the table by 7pm.",
+    bbfConstraints: "One guest is vegetarian\nNo peanuts, severe allergy\nGrocery budget $80\nI get home at 5pm",
+    bbfCheck: "Menu written by Friday night; receipt under $80; a vegetarian main on the menu",
+    bbfStop: "No recipes needing special equipment; no new dishes after Friday",
+    bbfD1: "Main dish: mushroom risotto or eggplant parmesan",
+    bbfD2: "Store-bought dessert to save time",
+    bbfD3: "Serve buffet-style, no plated courses",
+    bbfScope: "Within scope: 3 dishes and a dessert. Anything more needs a cut."
+  };
+
+  $("bbExBtn").addEventListener("click", function(){
+    var has = fields.some(function(id){ return val(id).length > 0; });
+    if(has && !window.confirm("Replace what you have typed with the example?")) return;
+    fields.forEach(function(id){ $(id).value = EXAMPLE[id] || ""; });
+    render();
+    msg.textContent = "Example loaded. Edit it, or clear the fields to start fresh.";
+  });
+
+  render();
+})();
+
+</script>
+<script>
+"use strict";
+/* ===== Fold-in boot (Stage B) ===== */
+if(document.getElementById("c_area")){wireContract();renderContracts();}
+if(document.getElementById("tplList")){renderTplList();}
 </script>
 </body></html>
