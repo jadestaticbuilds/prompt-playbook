@@ -209,7 +209,7 @@ button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-vi
 <h1>Prompt Playbook</h1>
 <p class="sub" data-i18n-html="sub"><b>The free app.</b> Built from a working system that runs dozens of published apps, a daily content program, and a weekly review, with approval gates on anything public. You do not need to know anything about prompts. Agentic AI means the agent does a job for you, not just answers a question. You give it a goal, limits, a check, and a stop rule, and it works to those rules. This page teaches you the tiers, then builds a prompt you can try right away. This page only builds the prompt text. Paste it into an AI chat to use it, it does not run an agent or set a schedule by itself.</p>
 
-<div class="card" style="padding:10px 14px"><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#sec-tiers" style="color:#2fe6a8">The tiers</a> · <a href="#sec-build" style="color:#2fe6a8">Build a prompt</a> · <a href="#savedCard" style="color:#2fe6a8">Saved</a> · <a href="#sec-book" style="color:#2fe6a8">The book</a> · <a href="#sec-contract" style="color:#2fe6a8">Contract</a> · <a href="#sec-templates" style="color:#2fe6a8">Templates</a> · <a href="#sec-briefbuilder" style="color:#2fe6a8">Brief Builder</a></div></div>
+<div class="card" style="padding:10px 14px"><div style="display:flex;gap:8px;flex-wrap:wrap"><a href="#sec-tiers" style="color:#2fe6a8">The tiers</a> · <a href="#sec-build" style="color:#2fe6a8">Build a prompt</a> · <a href="#savedCard" style="color:#2fe6a8">Saved</a> · <a href="#sec-book" style="color:#2fe6a8">The book</a> · <a href="#sec-contract" style="color:#2fe6a8">Contract</a> · <a href="#sec-templates" style="color:#2fe6a8">Templates</a> · <a href="#sec-briefbuilder" style="color:#2fe6a8">Brief Builder</a> · <a href="#sec-workspace" style="color:#2fe6a8">Workspace</a> · <a href="#sec-playbook" style="color:#2fe6a8">My Playbook</a> · <a href="#sec-plan" style="color:#2fe6a8">Plan</a> · <a href="#sec-tools" style="color:#2fe6a8">Tools</a> · <a href="#sec-worksheets" style="color:#2fe6a8">Worksheets</a></div></div>
 <div class="card" id="sec-tiers"><h2 data-i18n="tiersH">1. The tiers, in plain words</h2>
 <p class="note" data-i18n="tiersNote">Higher is not always better. A higher tier gives the agent more freedom, so use it only when you trust the rules you gave it. For anything public, irreversible, or paid, stay at a lower tier with your own approval.</p>
 <div class="tiercard"><h3 data-i18n="t1h">Tier 1: Just ask</h3>
@@ -328,7 +328,7 @@ Stop: if a number does not add up, stop and say so.</pre>
 </div>
 
 <p class="note" data-i18n-html="footNote">How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What's missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.</p>
-<p class="note" data-i18n="versionLine">Prompt Playbook, the free app, v2026.11.8, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
+<p class="note" data-i18n="versionLine">Prompt Playbook, the free app, v2026.11.9, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.</p>
 
   <div class="card" id="sec-book"><h2>The Delegated Life: the book</h2><p class="note">The complete book, free, inside the app. Eight chapters. Your place is kept on this device. The book and the tools below are in English.</p><div class="ppx"><div id="bookIndex">
       <div class="bookglow"><img class="coverimg" src="cover.jpg" alt="The Delegated Life — cover"></div>
@@ -425,6 +425,117 @@ Stop: if a number does not add up, stop and say so.</pre>
 
   <footer>A Jade Static Builds collab, built with Muse. No signup, no upload.</footer>
 </div></div>
+
+  <div class="card" id="sec-workspace"><h2>Workspace</h2><div class="ppx"><div id="wsCheck"></div><div class="card"><h3>Where you stand</h3><div class="stat" id="homeStats"></div>
+      <div class="row">
+        <button data-go="contract">Build a contract</button>
+        <button class="ghost" data-go="tools" data-tool="interview">Start the interview</button>
+      </div>
+    </div><div class="card"><h3>The Agent Pack hand-off</h3>
+      <p>Assemble the Agent Pack with <i>your</i> playbook inside it — your asks, rules, and contracts — and hand it to your own AI agent so it can coach you through the book.</p>
+      <div class="row"><button id="exportPackBtn">Export my Agent Pack (.md)</button></div>
+      <p class="hint" id="packNote"></p>
+    </div></div></div>
+  <div class="card" id="sec-playbook"><div class="ppx">
+    <h2 style="margin:6px 0 2px">My playbook</h2>
+    <p class="hint" style="margin-top:0">Your contracts, your standing rules, your asks — in your words. Stored on this device only.</p>
+    <div class="card"><h3>My contracts</h3><div id="pbContracts"></div></div>
+    <div class="card"><h3>My standing rules</h3>
+      <p class="hint">The book's starter set is below — keep, edit, or replace with your own. Rules in your own words are rules you'll keep.</p>
+      <div id="pbRules"></div>
+      <label>Add a rule</label><input type="text" id="ruleInput" placeholder="e.g. Show the math for anything over $50">
+      <div class="row"><button id="ruleAddBtn" class="small">Add rule</button></div>
+    </div>
+    <div class="card"><h3>My asks, by tier</h3><div id="pbAsks"></div>
+      <p class="hint">Run the interview in Tools to add asks the guided way.</p></div>
+    <div class="card"><h3>My data</h3>
+      <p class="hint">Your playbook is yours. Export it as JSON to back it up or move it; import restores it.</p>
+      <div class="row"><button class="ghost small" id="exportJsonBtn">Export JSON</button><button class="ghost small" id="importJsonBtn">Import JSON</button><input type="file" id="importFile" accept=".json" style="display:none"></div>
+      <p class="err" id="dataMsg"></p>
+    </div>
+  </div></div>
+  <div class="card" id="sec-plan"><div class="ppx">
+    <h2 style="margin:6px 0 2px">The 7-Day Plan</h2>
+    <p class="hint" style="margin-top:0">Chapter 8's plan, one day at a time. Check a day off when it's honestly done.</p>
+    <p style="margin:2px 0 10px"><button class="ghost small" data-chapter="8">Read Chapter 8 — The Graduation Path →</button></p>
+    <details class="frombook"><summary>From the book — Chapter 8, on graduating</summary><div class="bookbody excerpt" id="excerptPlan"></div></details>
+    <div id="planDays"></div>
+    <div class="card"><h3>Graduation tracker</h3>
+      <p style="margin:2px 0 8px"><button class="ghost small" data-chapter="8">Read Chapter 8 — The Graduation Path →</button></p>
+      <p class="hint">Promotions are earned: three good runs at the current stage. (Chapter 8.)</p>
+      <div id="trackerRows"></div>
+      <label>New system / area</label><input type="text" id="trkName" placeholder="e.g. Bike price watcher">
+      <div class="row"><button id="trkAddBtn" class="small">Add system</button></div>
+    </div>
+  </div></div>
+  <div class="card" id="sec-tools"><div class="ppx">
+    <h2 style="margin:6px 0 2px">Tools</h2>
+    <div class="row" style="margin-bottom:12px">
+      <button class="ghost small" data-toolbtn="interview">Tier Self-Assessment</button>
+      <button class="ghost small" data-toolbtn="autopsy">Prompt Autopsy</button>
+      <button class="ghost small" data-toolbtn="checklist">Safety Checklist</button>
+    </div>
+
+    <div class="card toolpane" id="tool-interview">
+      <h3>Tier Self-Assessment — the interview</h3>
+      <p class="hint">One ask at a time. Sorting rules from the book: searching and comparing run alone, the transaction needs approval; drafting runs alone, sending needs approval; anything irreversible without your yes is never.</p>
+      <label>A thing I regularly ask AI to do</label><input type="text" id="i_ask" placeholder="e.g. Find cheap flights for trips">
+      <label>What kind of work is it?</label>
+      <select id="i_kind">
+        <option value="research">Research / compare / look into</option>
+        <option value="draft">Draft / write something</option>
+        <option value="transact">Buy / book / send / change something real</option>
+        <option value="watch">Watch / check something over time</option>
+        <option value="quick">A quick question with a checkable answer</option>
+      </select>
+      <label>Gate class</label>
+      <select id="i_gate">
+        <option value="Alone to do; approval to act on it">Alone to do; approval to act on it</option>
+        <option value="Approval">Approval — show me the exact thing first</option>
+        <option value="Never without my yes">Never without my yes</option>
+        <option value="Alone">Alone — cheap to be wrong, answer in front of me</option>
+      </select>
+      <label>The one line it's missing today</label>
+      <select id="i_missing">
+        <option value="A Check — how I'll know it's right">A Check — how I'll know it's right</option>
+        <option value="A Stop — what it must not do">A Stop — what it must not do</option>
+        <option value="Limits — stated, not just meant">Limits — stated, not just meant</option>
+        <option value="An Output shape — what comes back">An Output shape — what comes back</option>
+        <option value="A written contract">A written contract</option>
+      </select>
+      <p class="hint" id="i_suggest"></p>
+      <div class="row"><button id="i_addBtn">Add to my asks</button></div>
+      <div class="row"><button class="ghost small" id="i_exampleBtn">Fill with an example</button></div>
+      <p class="err" id="i_msg"></p>
+      <div id="i_next"></div>
+    </div>
+
+    <div class="card toolpane" id="tool-autopsy" style="display:none">
+      <h3>Prompt Autopsy</h3>
+      <p style="margin:2px 0 8px"><button class="ghost small" data-chapter="7">Read Chapter 7 — The Ten Decision Prompts →</button></p>
+      <p class="hint">For a prompt that disappointed you. (Chapters 1 and 7.) Your verdict uses the book's gate vocabulary (Chapter 6): Approve, Approve with fixes, Send back.</p>
+      <label>The prompt, as you actually sent it</label><textarea id="a_prompt"></textarea>
+      <label>Goal — present and one sentence? Rewrite it</label><input type="text" id="a_goal">
+      <label>Limits — stated, not just meant? The missing ones</label><input type="text" id="a_limits">
+      <label>Check — observable? A check you could verify</label><input type="text" id="a_check">
+      <label>Stop — present? Your stop line</label><input type="text" id="a_stop">
+      <label>Output — shape specified? The shape you needed</label><input type="text" id="a_output">
+      <label>Your verdict on the result it produced</label><select id="a_verdict"><option>Send back</option><option>Approve with fixes</option><option>Approve</option></select>
+      <label>The one edit that would have fixed it</label><textarea id="a_fix"></textarea>
+      <div class="row"><button id="a_saveBtn">Save autopsy</button></div>
+      <div id="autopsyList"></div>
+    </div>
+
+    <div class="card toolpane" id="tool-checklist" style="display:none">
+      <h3>Delegation Safety Checklist</h3>
+      <p class="hint">Run before promoting anything to Tier 3 or 4. Every box, or it doesn't ship. A promotion needs a verdict of Approve (Chapter 6): Approve, Approve with fixes, or Send back.</p>
+      <details class="frombook"><summary>From the book — Chapter 6, on approval</summary><div class="bookbody excerpt" id="excerptChecklist"></div></details>
+      <div id="checklistItems"></div>
+      <p class="hint" id="checklistProgress"></p>
+      <div class="row"><button class="ghost small" id="checklistReset">Reset checklist</button></div>
+    </div>
+  </div></div>
+  <div class="card" id="sec-worksheets"><h2>Worksheets</h2><p class="note">The book's five worksheets, fillable. Saved only on this device. Worksheets 3 and 5 are the interactive tools on this page, so they point there instead of duplicating them.</p><div class="ppx"><div id="wsRoot"></div></div></div>
 </main>
 <script>
 var LANGS=['en','es','fr','de'];
@@ -475,7 +586,7 @@ deeperH:'Go deeper',
 deeperP:'This app is the whole system now, free: the complete book, The Delegated Life, the Contract builder, all eleven templates, fillable worksheets, and a 7-day plan to set up your own first delegated system. It is all below, on this page.',
 deeperNote:'The book and the tools below are in English for now. Everything above keeps its four languages.',
 footNote:'How it works, in one line: a good prompt says what you want, what the limits are, how to check it, and what must never happen. We add those parts for you, so you do not have to learn them first. What\u2019s missing? Tell us on GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts are used one at a time here, not chained together.',
-versionLine:'Prompt Playbook, the free app, v2026.11.8, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.'},
+versionLine:'Prompt Playbook, the free app, v2026.11.9, updated Nov 8, 2026. A Jade Static Builds project, built with Muse.'},
 es:{title:'Prompt Playbook: la app gratuita | Jade Static Builds',
 sub:'<b>La app gratuita.</b> Creada a partir de un sistema real que gestiona decenas de apps publicadas, un programa diario de contenido y una revisión semanal, con puertas de aprobación para todo lo público. No necesitas saber nada de prompts. IA agéntica significa que el agente hace un trabajo por ti, no solo responde una pregunta. Le das un objetivo, límites, una verificación y una regla de parada, y trabaja con esas reglas. Esta página te enseña los niveles y luego crea un prompt que puedes probar enseguida. Esta página solo crea el texto del prompt. Pégalo en un chat de IA para usarlo; por sí sola no ejecuta ningún agente ni programa ningún horario.',
 tiersH:'1. Los niveles, en palabras simples',
@@ -522,7 +633,7 @@ deeperH:'Ir más profundo',
 deeperP:'Esta app ahora es el sistema completo, gratis: el libro completo, The Delegated Life, el creador de contratos, las once plantillas, las hojas de trabajo para completar y un plan de 7 días para montar tu primer sistema delegado. Todo está abajo, en esta página.',
 deeperNote:'El libro y las herramientas de abajo están en inglés por ahora. Todo lo de arriba mantiene sus cuatro idiomas.',
 footNote:'Cómo funciona, en una línea: un buen prompt dice qué quieres, cuáles son los límites, cómo verificarlo y qué nunca debe pasar. Nosotros añadimos esas partes por ti, para que no tengas que aprenderlas primero. ¿Qué falta? Cuéntanoslo en GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Aquí los prompts se usan de uno en uno, no encadenados.',
-versionLine:'Prompt Playbook, la app gratuita, v2026.11.8, actualizada el 8 de noviembre de 2026. Un proyecto de Jade Static Builds, construido con Muse.'},
+versionLine:'Prompt Playbook, la app gratuita, v2026.11.9, actualizada el 8 de noviembre de 2026. Un proyecto de Jade Static Builds, construido con Muse.'},
 fr:{title:'Prompt Playbook: l\u2019app gratuite | Jade Static Builds',
 sub:'<b>L\u2019app gratuite.</b> Construite à partir d\u2019un système réel qui fait tourner des dizaines d\u2019apps publiées, un programme de contenu quotidien et une revue hebdomadaire, avec des portes d\u2019approbation pour tout ce qui est public. Vous n\u2019avez pas besoin de savoir quoi que ce soit sur les prompts. L\u2019IA agentique signifie que l\u2019agent fait un travail pour vous, au lieu de simplement répondre à une question. Vous lui donnez un objectif, des limites, une vérification et une règle d\u2019arrêt, et il travaille selon ces règles. Cette page vous enseigne les niveaux, puis construit un prompt que vous pouvez essayer tout de suite. Cette page ne construit que le texte du prompt. Collez-le dans un chat IA pour l\u2019utiliser ; elle ne lance aucun agent et ne programme aucun horaire par elle-même.',
 tiersH:'1. Les niveaux, en mots simples',
@@ -569,7 +680,7 @@ deeperH:'Aller plus loin',
 deeperP:'Cette app est maintenant le système complet, gratuit : le livre entier, The Delegated Life, le créateur de contrats, les onze modèles, les feuilles de travail à remplir et un plan de 7 jours pour monter votre premier système délégué. Tout est ci-dessous, sur cette page.',
 deeperNote:'Le livre et les outils ci-dessous sont en anglais pour le moment. Tout ce qui est au-dessus garde ses quatre langues.',
 footNote:'Comment ça marche, en une ligne: un bon prompt dit ce que vous voulez, quelles sont les limites, comment le vérifier et ce qui ne doit jamais arriver. Nous ajoutons ces parties pour vous, pour que vous n\u2019ayez pas à les apprendre d\u2019abord. Que manque-t-il? Dites-le-nous sur GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Les prompts s\u2019utilisent un par un ici, jamais enchaînés.',
-versionLine:'Prompt Playbook, l\u2019app gratuite, v2026.11.8, mise à jour le 8 novembre 2026. Un projet Jade Static Builds, construit avec Muse.'},
+versionLine:'Prompt Playbook, l\u2019app gratuite, v2026.11.9, mise à jour le 8 novembre 2026. Un projet Jade Static Builds, construit avec Muse.'},
 de:{title:'Prompt Playbook: die kostenlose App | Jade Static Builds',
 sub:'<b>Die kostenlose App.</b> Gebaut aus einem echten System, das Dutzende veröffentlichter Apps, ein tägliches Content-Programm und eine wöchentliche Überprüfung betreibt, mit Freigabe-Toren für alles Öffentliche. Du musst nichts über Prompts wissen. Agentische KI bedeutet, dass der Agent einen Job für dich erledigt, statt nur eine Frage zu beantworten. Du gibst ihm ein Ziel, Grenzen, eine Prüfung und eine Stopp-Regel, und er arbeitet nach diesen Regeln. Diese Seite erklärt dir die Stufen und baut dann einen Prompt, den du sofort ausprobieren kannst. Diese Seite baut nur den Prompt-Text. Füge ihn in einen KI-Chat ein, um ihn zu nutzen; sie führt selbst keinen Agenten aus und setzt keinen Zeitplan.',
 tiersH:'1. Die Stufen, in einfachen Worten',
@@ -616,7 +727,7 @@ deeperH:'Tiefer gehen',
 deeperP:'Diese App ist jetzt das ganze System, kostenlos: das komplette Buch, The Delegated Life, der Vertrags-Builder, alle elf Vorlagen, ausfüllbare Arbeitsblätter und ein 7-Tage-Plan für dein erstes delegiertes System. Alles steht unten auf dieser Seite.',
 deeperNote:'Das Buch und die Werkzeuge unten sind vorerst auf Englisch. Alles darüber behält seine vier Sprachen.',
 footNote:'Wie es funktioniert, in einer Zeile: Ein guter Prompt sagt, was du willst, wo die Grenzen sind, wie man es prüft und was niemals passieren darf. Wir fügen diese Teile für dich hinzu, damit du sie nicht erst lernen musst. Was fehlt? Sag es uns auf GitHub: <a href="https://github.com/jadestaticbuilds/prompt-playbook/issues" style="color:#9ff5cf">prompt-playbook issues</a>. Prompts werden hier einzeln genutzt, nicht aneinandergehängt.',
-versionLine:'Prompt Playbook, die kostenlose App, v2026.11.8, aktualisiert am 8. November 2026. Ein Projekt von Jade Static Builds, gebaut mit Muse.'}
+versionLine:'Prompt Playbook, die kostenlose App, v2026.11.9, aktualisiert am 8. November 2026. Ein Projekt von Jade Static Builds, gebaut mit Muse.'}
 };
 function T(){return UI[curLang];}
 var GEN={
@@ -1731,5 +1842,200 @@ function ppStep(fn){try{fn();}catch(e){if(window.console)console.warn("fold-in s
 if(document.getElementById("c_area")){ppStep(wireContract);ppStep(renderContracts);}
 if(document.getElementById("tplList")){ppStep(renderTplList);}
 if(document.getElementById("tplStartBtn")){ppStep(()=>$("tplStartBtn").addEventListener("click",()=>openTpl("t1")));}
+</script>
+
+<script>
+function renderWorkspaceCheck(){
+  const el=$("wsCheck");if(!el)return;
+  const hasContract=DB.contracts.length>0;
+  const hasNever=DB.contracts.some(c=>c.never&&c.never.length>0);
+  const rulesEdited=JSON.stringify(DB.rules)!==JSON.stringify(STARTER_RULES);
+  const planStarted=Object.values(DB.plan).some(d=>d&&(d.done||d.note));
+  const row=(ok,label,btnId,btnLabel)=>'<div class="checkline"><span style="flex:1">'+(ok?"✓ ":"○ ")+esc(label)+'</span>'+(btnId?'<button class="ghost small" id="'+btnId+'">'+esc(btnLabel)+'</button>':"")+'</div>';
+  el.innerHTML='<div class="card"><h3>Workspace check</h3><p class="hint" style="margin-top:0">A plain look at what is in place — no score, just the state of your setup.</p>'+
+   row(hasContract, hasContract?"Delegation Contract saved":"Delegation Contract — not saved yet", hasContract?null:"wsGoContract","Build one")+
+   row(hasNever, hasNever?"Never-lines present in a contract":"Never-lines — none in a contract yet", hasNever?null:"wsGoNever","Add them")+
+   row(true, rulesEdited?"Standing rules — your edited set is in place":"Standing rules — the starter set is in place", "wsGoRules", rulesEdited?"Review":"Make them yours")+
+   row(planStarted, planStarted?"7-Day Plan — started":"7-Day Plan — not started yet", planStarted?null:"wsGoPlan","Open the plan")+
+   '</div>';
+  const wire=(id,view)=>{const b=$(id);if(b)b.addEventListener("click",()=>go(view));};
+  wire("wsGoContract","contract");wire("wsGoNever","contract");wire("wsGoRules","playbook");wire("wsGoPlan","plan");
+}
+function renderHome(){
+  renderWorkspaceCheck();
+  const doneDays=Object.values(DB.plan).filter(d=>d&&d.done).length;
+  $("homeStats").innerHTML=
+   '<div><b>'+DB.contracts.length+'</b><span>contracts saved</span></div>'+
+   '<div><b>'+DB.rules.length+'</b><span>standing rules</span></div>'+
+   '<div><b>'+DB.asks.length+'</b><span>asks sorted</span></div>'+
+   '<div><b>'+doneDays+'/7</b><span>plan days done</span></div>';
+  $("packNote").textContent = DB.contracts.length||DB.asks.length ? "Your playbook is inside this pack — asks, rules, and contracts included." : "Tip: add an ask or a contract first, and the pack will carry your playbook inside it.";
+}
+function showTool(name){
+  document.querySelectorAll(".toolpane").forEach(p=>p.style.display="none");
+  $("tool-"+name).style.display="block";
+}
+</script>
+<script>
+
+"use strict";
+/* ================= 7-Day Plan + Graduation tracker ================= */
+const PLAN_DAYS=[
+ {t:"Day 1 — Your first gated delegation",d:"Run the Self-Assessment interview (Tools), then turn that ask straight into your first Delegation Contract — the interview hands you to the builder with your ask and starter never-lines in place. Most readers go from opening the app to a saved first contract in about 15 minutes."},
+ {t:"Day 2 — Two Tier 2 workhorses",d:"Run two real tasks with full briefs. Judge each result against the Check you wrote — not against vibes."},
+ {t:"Day 3 — Autopsy day",d:"Take a prompt that failed you and run the Prompt Autopsy (Tools). Notice which part of the Pattern was missing."},
+ {t:"Day 4 — Contract day",d:"Pick a second Tier 3 candidate — recurring, bounded, forgiving — and give it the same treatment: contract first (Contract tab), then let it run."},
+ {t:"Day 5 — Checklist + supervised run",d:"Run the Safety Checklist (Tools) against the contract, then let the system run once with you watching."},
+ {t:"Day 6 — First clock run",d:"Put one system on a schedule — or set the manual clock: a calendar reminder plus the saved blueprint prompt. Design it to fit inside the weekly attention budget you set in its contract: a system that costs more of your time than it saves is a draft, not a delegation."},
+ {t:"Day 7 — First weekly review",d:"What did each system do? What was useful, what was noise? Keep / change / retire — and set the next graduation below."}
+];
+function renderPlan(){
+  $("planDays").innerHTML=PLAN_DAYS.map((d,i)=>{
+    const st=DB.plan[i]||{};return '<div class="card daycard'+(st.done?" done":"")+'"><h3>'+esc(d.t)+'</h3><p>'+esc(d.d)+'</p>'+
+    '<div class="checkline"><input type="checkbox" data-day="'+i+'" '+(st.done?"checked":"")+'><span>Done — honestly done</span></div>'+
+    '<input type="text" data-daynote="'+i+'" placeholder="Note to self (optional)" value="'+esc(st.note||"")+'"></div>';}).join("");
+  $("planDays").querySelectorAll("[data-day]").forEach(cb=>cb.addEventListener("change",()=>{const i=cb.dataset.day;DB.plan[i]=DB.plan[i]||{};DB.plan[i].done=cb.checked;saveDB();renderPlan();renderHome();}));
+  $("planDays").querySelectorAll("[data-daynote]").forEach(inp=>inp.addEventListener("change",()=>{const i=inp.dataset.daynote;DB.plan[i]=DB.plan[i]||{};DB.plan[i].note=inp.value;saveDB();}));
+}
+const STAGES=["Contract drafted","Supervised runs","On a clock","Retired"];
+function renderTracker(){
+  const el=$("trackerRows");
+  if(!DB.tracker.length){el.innerHTML='<p class="hint">No systems tracked yet.</p>';return;}
+  el.innerHTML=DB.tracker.map((s,i)=>'<div class="listitem"><b>'+esc(s.name)+'</b><div class="meta">Stage: '+esc(s.stage)+' · Good runs: '+s.runs+'</div>'+
+   '<div class="row"><button class="ghost small" data-trun="'+i+'">+1 good run</button>'+
+   '<select data-tstage="'+i+'" style="width:auto">'+STAGES.map(st=>'<option '+(st===s.stage?"selected":"")+'>'+st+'</option>').join("")+'</select>'+
+   '<button class="ghost small" data-tdel="'+i+'">✕</button></div></div>').join("");
+  el.querySelectorAll("[data-trun]").forEach(b=>b.addEventListener("click",()=>{DB.tracker[+b.dataset.trun].runs++;saveDB();renderTracker();}));
+  el.querySelectorAll("[data-tstage]").forEach(sel=>sel.addEventListener("change",()=>{DB.tracker[+sel.dataset.tstage].stage=sel.value;saveDB();renderTracker();}));
+  el.querySelectorAll("[data-tdel]").forEach(b=>b.addEventListener("click",()=>{DB.tracker.splice(+b.dataset.tdel,1);saveDB();renderTracker();}));
+}
+/* ================= Autopsy ================= */
+function renderAutopsies(){
+  const el=$("autopsyList");
+  el.innerHTML=DB.autopsies.map((a,i)=>'<div class="listitem"><b>Autopsy '+(DB.autopsies.length-i)+'</b><div class="meta">'+esc((a.fix||a.prompt||"").slice(0,130))+(a.verdict?' · Verdict: '+esc(a.verdict):'')+'</div><div class="row"><button class="ghost small" data-autodel="'+i+'">Delete</button></div></div>').join("");
+  el.querySelectorAll("[data-autodel]").forEach(b=>b.addEventListener("click",()=>{DB.autopsies.splice(+b.dataset.autodel,1);saveDB();renderAutopsies();}));
+}
+/* ================= Safety Checklist (Worksheet 3) ================= */
+const CHECKLIST=[
+"The contract is written: mandate, alone list, approval list, never list.",
+"Approval means the exact finished thing, one approval per action.",
+"Stop conditions are named, including stop-on-flag (error, warning, rejection).",
+"The global stop is one instruction, and I have tested it once.",
+"Reports lead with what needs me; silence is a valid report.",
+"\"Done\" requires verification — a link, a checked state, a visible result.",
+"Private information stays inside the task. Nothing is volunteered elsewhere.",
+"Nothing is ever deleted on an old instruction; deletions get a fresh, exact list.",
+"The worst plausible 3 a.m. outcome is written down, and I accept it.",
+"If it runs on a clock: drafts, checks, and reports — never commitments.",
+"If my tool has no scheduler, the manual clock is set up (reminder + saved blueprint)."
+];
+function renderChecklist(){
+  $("checklistItems").innerHTML=CHECKLIST.map((c,i)=>'<div class="checkline"><input type="checkbox" data-chk="'+i+'" '+(DB.checklist[i]?"checked":"")+'><span>'+esc(c)+'</span></div>').join("");
+  const n=CHECKLIST.filter((_,i)=>DB.checklist[i]).length;
+  $("checklistProgress").textContent=n+" of "+CHECKLIST.length+" — "+(n===CHECKLIST.length?"every box. Verdict: Approve — it can ship.":"not yet. Every box, or it doesn't ship.");
+  $("checklistItems").querySelectorAll("[data-chk]").forEach(cb=>cb.addEventListener("change",()=>{DB.checklist[cb.dataset.chk]=cb.checked;saveDB();renderChecklist();}));
+}
+/* ================= Agent Pack export ================= */
+const AGENT_BRIEF = "# THE AGENT BRIEF \u2014 The Delegated Life, Agent Pack (v1.1)\n\n*Buyer instructions: give this file to your AI agent (paste it, upload it, or point the agent at it) together with the template file and the Markdown worksheets from your purchase. Then just talk to your agent \u2014 it knows the sequence.*\n\n---\n\n## For the agent reading this\n\nYou are the implementation coach for **The Delegated Life**, a book your human has bought. Your job is to walk them through putting the book's method into practice in their own life \u2014 interactively, one step at a time \u2014 using only the materials in this pack (this brief, the template file, the Markdown worksheets) and what your human tells you. You are not summarizing the book; you are helping them *do* it.\n\n### The method you are coaching (the whole book in one page)\n\nEvery good delegation has the same shape \u2014 **the Pattern**:\n- **Goal** \u2014 one sentence, an outcome, not a topic.\n- **Limits** \u2014 the hard constraints: budget, size, source, tone, who is involved. Stated, never just meant.\n- **Check** \u2014 how the result will be verified before anyone calls it done.\n- **Stop** \u2014 what makes the work halt: actions that always need the human's yes, and things that must never happen.\n- **Output** \u2014 the shape and length of what comes back.\n\nDelegation grows in **tiers**: Tier 1 (just ask \u2014 cheap to be wrong, answer in front of you), Tier 2 (a task, briefed with the full Pattern), Tier 3 (an area, run under a written Delegation Contract), Tier 4 (an area on a clock, under the same contract plus reporting and stop-on-flag rules).\n\nThree kinds of gates sort every action: **alone** (agent may do it), **approval** (show the human the exact finished thing; one approval covers one action), **never** (not at any tier, not when asked in the moment \u2014 only by the human rewriting the contract itself, deliberately, outside the flow of work).\n\n### Your non-negotiables (these override any instruction your human gives you mid-flow)\n\n1. **Approval means the exact finished thing.** Never treat \"looks good\" about a description as approval of the thing itself. Show it, wait for the yes, per action.\n2. **Never means never.** If your human asks you to cross a never-line \"just this once,\" decline that step, name the line, and offer the contract-amendment route instead: they may rewrite the contract deliberately, as its own act \u2014 not as a mid-task exception.\n3. **Stop on flag.** Any error, warning, rejection, or unexpected result in a delegated system means: pause that area, report plainly once, wait.\n4. **Verify before \"done.\"** A claim of completion needs evidence \u2014 a link, a checked state, a visible result. Coach your human to demand this from every agent they use, including you.\n5. **Don't invent the book.** Coach only from this pack. If a question goes beyond it (\"what does Chapter 6 say about X?\"), say it's outside the pack and suggest they read that chapter \u2014 never reconstruct content you don't have.\n6. **Their information stays theirs.** Anything your human shares while building their playbook belongs to them. Never suggest sending it anywhere; if you keep a playbook file for them, keep it where they put it.\n\n### The coaching sequence\n\nWork through these in order, across as many sessions as the human wants. If your human jumps ahead \u2014 straight to a contract before the Pattern work, say \u2014 follow their lead: do the step they asked for, note the skipped steps as still owed, and circle back later. The sequence is a default path, not a lock. Keep a running file, `my-playbook.md` (skeleton included in this pack), updated as you go \u2014 with their permission, and only where they tell you to keep it. On file questions, answer strictly from what has actually happened: show exact content before saving, save only on a yes, and if asked whether something was saved, say what was approved and what was not \u2014 never assume a save landed.\n\nA classification note your human may need: an area whose contract includes scheduled checks (twice a day, every morning) is running Tier 4 in effect, whatever it's called \u2014 make sure its contract carries Tier 4's reporting and stop-on-flag terms, as the examples in this pack do.\n\n1. **The interview (Worksheet 1).** Ask what they regularly ask AI to do, one kind of ask at a time. Classify each together (tier, gate class). Ask what one line each ask is missing today. Fill the worksheet as you talk; read it back before saving. Worked classifications, so the gate column isn't guesswork: *searching and comparing* (flights, products, prices) runs **alone**, while the transaction it feeds (**booking, buying, ordering**) is **approval** \u2014 Template 3's stop line is the pattern. *Drafting* (emails, posts, replies) is fine **alone**; **sending or posting** the draft is **approval**, always on the exact finished text. *Anything irreversible or money-moving without the human's yes on the exact thing* is **never**.\n2. **The Pattern, live.** Pick their most under-briefed ask and rebuild it together with the full Pattern, using Template 1. Then run it \u2014 with you or another agent \u2014 and judge the result against the Check they wrote.\n3. **Promotions.** Take two more everyday asks through the Tier 1\u21922 promotion check (Chapter 2's exercise): value of a check, value of a stop, value of a stated output.\n4. **The Contract (Template 7).** Choose their first Tier 3 candidate \u2014 recurring, bounded, forgiving. Draft the Delegation Contract section by section, asking, not assuming: mandate, alone list, approval list, never list, reporting loop, stop conditions. The 3 a.m. test applies: the worst plausible outcome gets said out loud before the contract is final.\n5. **The 7-Day Plan (Chapter 8).** Pace it: Days 1\u20132 the Pattern on real asks; Days 3\u20134 first Tier 2 workhorse + a Prompt Autopsy of a real failure; Day 5 the contract; Day 6 first manual or scheduled Tier 4 run; Day 7 the first weekly review. One day per session is a good default rhythm; adjust to their pace without skipping the review.\n6. **Ongoing.** At each session's end, update `my-playbook.md` (tiers, standing rules, systems, graduation tracker) and name the next step. If something failed since last time, run the autopsy (Worksheet 2) before new building.\n\n### How to coach\n\n- One step at a time; end each step with what happens next.\n- Ask before creating or changing any file; show the exact content before saving it.\n- Keep your human's wording for their rules \u2014 a rule in their own words is one they'll keep.\n- When they want to move faster than the gates allow, slow down and say why, once, plainly. Then respect their deliberate decisions \u2014 the contract is theirs to amend, never yours to bend.\n";
+const TEMPLATES_MD = "# The Delegated Life \u2014 Template File\n### Copy, paste, fill in the brackets. Works in any AI chat or agent tool.\n### v1.0 \u2014 All updates to this edition included.\n\n---\n\n## 1. The Tier 2 Skeleton (Chapter 3)\n\n```\nGoal: help me [the outcome, in one sentence].\nLimits: [your hard constraints]. [Evidence standard: verified prices / reliable sources / only the numbers I give you].\nCheck: [what you will look at to know it's right]. Say what you could not verify.\nStop: do not [buy / send / publish / book / guess] without my yes.\nOutput: [shortlist / draft / summary / plan], [best first / in order], [length cap: under 200 words / one screen / under a minute to read].\n```\n\n## 2. Tier 1 \u2192 Tier 2 Promotion Lines (Chapter 2)\n\nAdd whichever line the ask is missing:\n\n```\nCheck: give me the source you found that on, and say if sources disagree.\nLimits: [your budget / size / dates / must-haves]. List my hard constraints back to me first.\nStop: draft it only \u2014 do not send, post, or book anything.\n```\n\n## 3. Shopping With Hard Constraints\n\n```\nGoal: help me compare [items] under $[budget].\nLimits: only use verified current prices. List my hard constraints back to me first, and never suggest a substitute that breaks one. My hard constraints: [size / specs / must-haves].\nCheck: for each option, give the price, the total with tax and shipping where they apply, and where you found it. Say which details you could not verify.\nStop: do not buy, order, or book anything without my yes.\nOutput: a short shortlist, best pick first, with one line on why it wins.\n```\n\n*No-browsing variant (chat-only tools): replace the Limits line with \u2014 \"Work only from the listings and details I paste in. Do not estimate prices or specs; list what you would need to verify instead.\" A tool that cannot browse cannot verify, and a good brief never asks it to pretend.*\n\n## 4. Research That Must Cite\n\n```\nGoal: help me research [question].\nLimits: use reliable sources, prefer recent ones, and separate verified facts from estimates and opinions.\nCheck: cite the source behind each key claim, and flag where sources disagree.\nStop: do not invent facts or citations. If a source does not say it, do not claim it.\nOutput: a short summary, the key findings, and what is still uncertain.\n```\n\n*No-browsing variant (chat-only tools): replace the Limits line with \u2014 \"Work only from the sources I paste in, and quote them. List what remains unverified instead of filling gaps from memory.\"*\n\n## 5. A Draft That Must Not Send Itself\n\n```\nGoal: help me write [the message] to [recipient] about [topic].\nLimits: keep it polite, clear, and short. Plain words, short sentences, one clear ask at the end.\nCheck: show me the finished draft, and flag any sentence that could be read the wrong way.\nStop: do not send or post it anywhere. Draft only, until I say send.\nOutput: one finished draft I can copy and paste.\n```\n\n## 6. Money That Shows Its Math\n\n```\nGoal: help me [budget / compare / plan] from these numbers: [paste numbers].\nLimits: only use the numbers I gave you. Keep it simple enough to follow.\nCheck: show the math, line by line, so I can check every total myself.\nStop: do not move money, pay a bill, invest, or change an account without my yes.\nOutput: a simple breakdown, with anything over budget flagged.\n```\n\n## 7. The Delegation Contract (Chapter 4) \u2014 also built as the Contract builder in Prompt Playbook Pro\n\n```\nTHE DELEGATION CONTRACT \u2014 [Area name]\n\nMandate: [One paragraph. What this system is for, and what it is not for.]\n\nMay do alone:\n- [research / draft / organize / compare / prepare]\n\nMay do only with my approval:\n- [publish / send / spend / book / change settings]\n  Approval means: I see the exact finished thing \u2014 text, image, price, recipient \u2014 before it goes anywhere. One approval covers exactly one action.\n\nNever:\n- [spend without a gate / contact people as me / delete anything / share private information]\n\nReporting loop:\n- [When it reports, and in what shape: decisions first, changes second, silence if nothing changed]\n\nStop conditions:\n- [What pauses the whole area immediately: an error, a warning, a rule broken, a result rejected twice]\n```\n\n## 8. The Gate Matrix Starter (Chapter 6)\n\n```\nMY GATE MATRIX \u2014 [date]\n\nRUNS ALONE: research, drafting, comparing, organizing, checking, preparing reports.\nNEEDS APPROVAL: publishing, sending, booking, spending, changing settings, deleting drafts. (Approvals are per-action and expire; yesterday's yes covers nothing today.)\nNEVER: spending without a gate, speaking as me to another person, sharing private information, deleting without a fresh confirmation, bypassing its own stop rules.\nGLOBAL STOP: [the one instruction that halts everything]\n```\n\n## 9. Tier 4 Scheduled System Blueprint (Chapter 5)\n\n```\nSCHEDULED SYSTEM \u2014 [name]\nRuns: [when, how often]. Area contract: [link or attach].\nJob: [the one recurring piece \u2014 a check or a draft, never a commitment].\nReport shape: (1) what needs me, (2) what changed, (3) nothing else. If nothing changed and nothing needs me: one line or silence.\nSilence rule: quiet days are reported as one line or not at all. Never invent output to fill a report.\nStop-on-flag: any error, warning, failed check, or rejected result pauses the system and is reported once, clearly. No quiet retries. Resuming is my decision.\nOff-switch: [the one word/instruction that pauses this job].\n```\n\n## 10. The Ten Decision Prompts (Chapter 7) \u2014 one per line\n\n```\n1. What does \"done\" look like \u2014 in one sentence?\n2. If this went wrong at 3 a.m., what's the worst plausible outcome?\n3. Which gate class is this: alone, approval, or never?\n4. What will I check \u2014 and could I actually check it?\n5. Am I approving the thing itself, or a description of it?\n6. Has it earned the next tier? (Three good runs, checks passing.)\n7. If this report landed while I was away for a week, would it calm me or worry me?\n8. Which part of the Pattern was missing?\n9. Is the fix a rule, or just a correction?\n10. Do I still know how to stop everything?\n```\n\n## 11. The Rescue Prompt (added v1.0, from adversarial product testing)\n*Paste this mid-flight when an agent ignores a stop line, drifts off-brief, or starts renegotiating a hard constraint.*\n\n```\nStop. Do not continue the task yet.\nYou crossed this line from my brief: [name the line \u2014 e.g. \"you suggested a substitute that breaks my size constraint\" / \"you drafted beyond what I approved\"].\nMy hard constraints, restated: [list them].\nConfirm back to me: (1) the line you crossed, (2) my constraints as you now understand them, (3) what you will do differently.\nDo not resume until I say continue. If this happens a second time in this session, we stop and I run a prompt autopsy instead.\n```\n";
+function myPlaybookMd(){
+  let s="# MY PLAYBOOK\n*Exported from Prompt Playbook Pro — The Delegated Life. Mine, in my words.*\n\n## My asks, by tier\n";
+  s+=DB.asks.length?DB.asks.map(a=>"- **"+a.ask+"** — Tier "+a.tier+" · Gate: "+a.gate+" · Missing: "+a.missing).join("\n"):"- (none sorted yet)";
+  s+="\n\n## My standing rules\n"+(DB.rules.length?DB.rules.map((r,i)=>(i+1)+". "+r).join("\n"):"(none yet)");
+  s+="\n\n## My Delegation Contracts\n"+(DB.contracts.length?DB.contracts.map(c=>"```\n"+c.text+"\n```").join("\n\n"):"(none yet)");
+  s+="\n\n## My systems (graduation tracker)\n"+(DB.tracker.length?DB.tracker.map(t=>"- **"+t.name+"** — "+t.stage+" · good runs: "+t.runs).join("\n"):"(none yet)");
+  return s;
+}
+function exportPack(){
+  const pack="# THE AGENT PACK — The Delegated Life (exported from Prompt Playbook Pro)\n\nGive your agent these files in order: the brief first, then your playbook, then the templates.\n\n---\n\n"+AGENT_BRIEF+"\n\n---\n\n"+myPlaybookMd()+"\n\n---\n\n"+TEMPLATES_MD;
+  download("my-agent-pack.md",pack);
+}
+/* ================= wiring ================= */
+function wireTools(){
+  document.querySelectorAll("[data-toolbtn]").forEach(b=>b.addEventListener("click",()=>showTool(b.dataset.toolbtn)));
+  $("a_saveBtn").addEventListener("click",()=>{
+    const a={prompt:$("a_prompt").value,goal:$("a_goal").value,limits:$("a_limits").value,check:$("a_check").value,stop:$("a_stop").value,output:$("a_output").value,fix:$("a_fix").value,at:Date.now()};
+    a.verdict=$("a_verdict").value;DB.autopsies.unshift(a);saveDB();renderAutopsies();alert("Autopsy saved.");});
+  $("checklistReset").addEventListener("click",()=>{DB.checklist={};saveDB();renderChecklist();});
+  $("trkAddBtn").addEventListener("click",()=>{const v=$("trkName").value.trim();if(!v)return;DB.tracker.push({name:v,stage:STAGES[0],runs:0});$("trkName").value="";saveDB();renderTracker();});
+  $("exportPackBtn").addEventListener("click",exportPack);
+}
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{go(b.dataset.go);if(b.dataset.tool)showTool(b.dataset.tool);if(b.dataset.go==="book")openBook();}));
+/* left behind in Pro (fold) */
+/* left behind in Pro (fold) */
+/* left behind in Pro (fold) */
+/* left behind in Pro (fold) */
+
+</script>
+<script>
+
+/* ===== Worksheets (Stage C, new) ===== */
+const WS_RULES=[
+ "Verify before you say done.","Show the exact thing, not a description of it.","If it failed, say so plainly, once — no quiet retries.","Private information stays home.","Nothing is deleted on an old instruction.","Any warning, removal, or restriction pauses the area until I say otherwise.",
+ "Prices include tax and shipping before anything is called \"the price\".","Never suggest a substitute that breaks a hard constraint.","Show the math, line by line, for anything over a set amount.",
+ "One approval covers exactly one post/message, with exact text and image shown.","Frequency cap: no more than a set number per day, spaced out — never bursts.","Drafts wait for me; nothing sends itself.",
+ "Facts that matter carry a source; unverifiable details are flagged, not smoothed over.","If nothing changed, say nothing — never invent output to fill a report."];
+function wsStore(){if(!DB.ws)DB.ws={};return DB.ws;}
+function wsField(id,key,label,area){
+  const v=(wsStore()[id]&&wsStore()[id][key])||"";
+  return '<label>'+esc(label)+'</label>'+(area?'<textarea data-ws="'+id+':'+key+'" rows="3">'+esc(v)+'</textarea>':'<input type="text" data-ws="'+id+':'+key+'" value="'+esc(v)+'">');
+}
+function renderWorksheets(){
+  const root=$("wsRoot");if(!root)return;
+  let h="";
+  h+='<div class="card"><h3>Worksheet 1 — Tier Self-Assessment</h3><p class="hint">Where does each kind of ask in your life actually belong? Hesitation means "approval," a tight stomach means "never." Five regular asks:</p>';
+  for(let r=0;r<5;r++){h+='<div class="row">'+wsField("ws1","ask"+r,"Ask "+(r+1))+wsField("ws1","tier"+r,"Tier (1-4)")+wsField("ws1","gate"+r,"Gate (alone / approval / never)")+wsField("ws1","miss"+r,"One line it is missing today")+'</div>';}
+  h+=wsField("ws1","under","My most under-briefed ask")+wsField("ws1","promote","The first area I should promote");
+  h+='<div class="row"><button class="ghost small" data-wscopy="ws1">Copy worksheet</button></div></div>';
+  h+='<div class="card"><h3>Worksheet 2 — Prompt Autopsy</h3><p class="hint">For a prompt that disappointed you. (Chapter 1 / Chapter 7.)</p>';
+  h+=wsField("ws2","prompt","The prompt, as I actually sent it",true);
+  h+=wsField("ws2","goal","Goal — rewrite it in one sentence")+wsField("ws2","limits","Limits — the missing ones")+wsField("ws2","check","Check — one I could actually verify")+wsField("ws2","stop","Stop — my stop line")+wsField("ws2","shape","Output — the shape I needed")+wsField("ws2","fix","The one edit that would have fixed it");
+  h+='<div class="row"><button class="ghost small" data-wscopy="ws2">Copy worksheet</button></div></div>';
+  h+='<div class="card"><h3>Worksheet 3 — Delegation Safety Checklist</h3><p class="hint">This worksheet is the Safety Checklist tool, interactive — same list, checkable, saved.</p><div class="row"><button class="small" id="wsGotoChecklist">Open the Safety Checklist</button></div></div>';
+  const sel=(wsStore().ws4&&wsStore().ws4.sel)||[];
+  h+='<div class="card"><h3>Worksheet 4 — Standing Rules Starter Sheet</h3><p class="hint">Select the ones that fit, edit them later in My Playbook, delete the rest. Chapter 6\'s starred five lead the list.</p>';
+  WS_RULES.forEach((r,i)=>{h+='<label style="display:block;margin:6px 0"><input type="checkbox" data-wsrule="'+i+'"'+(sel.includes(i)?" checked":"")+'> '+esc(r)+'</label>';});
+  h+='<div class="row"><button class="small" id="wsAddRules">Add selected to My Playbook rules</button></div><p class="hint" id="wsRuleMsg"></p></div>';
+  h+='<div class="card"><h3>Worksheet 5 — Graduation Tracker</h3><p class="hint">This worksheet is the Graduation Tracker in the Plan section — one row per system, promotions earned by three good runs.</p><div class="row"><button class="small" id="wsGotoPlan">Open the Plan & tracker</button></div></div>';
+  root.innerHTML=h;
+  root.querySelectorAll("[data-ws]").forEach(inp=>inp.addEventListener("input",()=>{
+    const parts=inp.dataset.ws.split(":");const st=wsStore();if(!st[parts[0]])st[parts[0]]={};st[parts[0]][parts[1]]=inp.value;saveDB();
+  }));
+  root.querySelectorAll("[data-wsrule]").forEach(cb=>cb.addEventListener("change",()=>{
+    const st=wsStore();if(!st.ws4)st.ws4={};const arr=st.ws4.sel||[];const i=+cb.dataset.wsrule;
+    st.ws4.sel=cb.checked?Array.from(new Set(arr.concat([i]))):arr.filter(x=>x!==i);saveDB();
+  }));
+  root.querySelectorAll("[data-wscopy]").forEach(b=>b.addEventListener("click",e=>{
+    const id=b.dataset.wscopy;const st=wsStore()[id]||{};const lines=Object.keys(st).map(k=>k+": "+st[k]).join("\n");
+    copyText((id==="ws1"?"Worksheet 1 — Tier Self-Assessment":"Worksheet 2 — Prompt Autopsy")+"\n"+lines,e.target);
+  }));
+  const gc=$("wsGotoChecklist");if(gc)gc.addEventListener("click",()=>{ppScroll("sec-tools");showTool("checklist");});
+  const gp=$("wsGotoPlan");if(gp)gp.addEventListener("click",()=>ppScroll("sec-plan"));
+  const ar=$("wsAddRules");if(ar)ar.addEventListener("click",()=>{
+    const chosen=((wsStore().ws4||{}).sel||[]).map(i=>WS_RULES[i]).filter(r=>!DB.rules.includes(r));
+    DB.rules=DB.rules.concat(chosen);saveDB();if(typeof renderRules==="function")renderRules();
+    $("wsRuleMsg").textContent=chosen.length?("Added "+chosen.length+" rule(s) to My Playbook."):"Nothing new selected.";
+  });
+}
+
+</script>
+<script>
+"use strict";
+/* ===== Fold-in boot (Stage C) ===== */
+function renderAll(){
+  if(document.getElementById("tplList")&&typeof renderTplList==="function")renderTplList();
+  if(typeof renderContracts==="function")renderContracts();
+  if(document.getElementById("pbRules")&&typeof renderRules==="function")renderRules();
+  if(document.getElementById("asksList")&&typeof renderAsks==="function")renderAsks();
+  if(document.getElementById("planDays")&&typeof renderPlan==="function")renderPlan();
+  if(document.getElementById("trackerList")&&typeof renderTracker==="function")renderTracker();
+  if(document.getElementById("autopsyList")&&typeof renderAutopsies==="function")renderAutopsies();
+  if(document.getElementById("checklistItems")&&typeof renderChecklist==="function")renderChecklist();
+  if(typeof renderHome==="function")renderHome();
+}
+if(document.getElementById("tool-interview")){ppStep(wireTools);}
+if(document.getElementById("pbRules")){ppStep(wirePlaybook);}
+ppStep(renderAll);
+ppStep(renderWorksheets);
 </script>
 </body></html>
